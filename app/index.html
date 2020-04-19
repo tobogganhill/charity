@@ -1,141 +1,334 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>Alice</title>
-  <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
-  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel='stylesheet' type='text/css'>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
-  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/admin-lte/2.3.3/css/AdminLTE.min.css">
-  <script src="//code.jquery.com/jquery-1.10.2.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-  <script src="./app.js"></script>
-</head>
-<body>
-<section class="content-header">
-  <h1>
-    Alice
-    <small>Smart Contracts Demo</small>
-  </h1>
-</section>
+	<head>
+		<title>Charitable Project Crowdfunding</title>
+		<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+		<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+		<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+		<link rel="manifest" href="/site.webmanifest" />
+		<link
+			href="https://fonts.googleapis.com/icon?family=Material+Icons"
+			rel="stylesheet"
+		/>
+		<link
+			rel="stylesheet"
+			href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+			integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+			crossorigin="anonymous"
+		/>
+		<link
+			rel="stylesheet"
+			href="https://cdnjs.cloudflare.com/ajax/libs/admin-lte/2.3.3/css/AdminLTE.min.css"
+		/>
 
-<div class="row">
-  <div class="col-lg-3 col-xs-6">
-    <!-- small box -->
-    <div class="small-box bg-aqua">
-      <div class="inner" style="height: 154px">
-        <h3>Donor 1 Wallet</h3>
-        <h4 class="amount-changeable"><i class="fa fa-database"></i> <span id="balance_donor_1"></span> dGBP</h4>
-      </div>
-      <div class="icon">
-        <i class="ion ion-person"></i>
-      </div>
-      <a href="#" class="small-box-footer" onclick="deposit(donor1Account, 20)">Deposit (20) <i class="fa fa-arrow-circle-up"></i></a>
-      <a href="#" class="small-box-footer" onclick="donateAll(donor1Account)">Donate <i class="fa fa-arrow-circle-right"></i></a>
-      <a href="#" class="small-box-footer" onclick="donateAll(donor1Account)">Reuse Unspent <i class="fa fa-arrow-circle-right"></i></a>
-    </div>
+		<script
+			src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+			integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+			crossorigin="anonymous"
+		></script>
+		<script
+			src="https://kit.fontawesome.com/f07a796881.js"
+			crossorigin="anonymous"
+		></script>
+		<script src="//code.jquery.com/jquery-1.10.2.min.js"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+		<script src="./app.js"></script>
+	</head>
 
-    <div class="small-box bg-aqua">
-      <div class="inner" style="height: 154px">
-        <h3>Donor 2 Wallet</h3>
-        <h4 class="amount-changeable"><i class="fa fa-database"></i> <span id="balance_donor_2"></span> dGBP</h4>
-      </div>
-      <div class="icon">
-        <i class="ion ion-person"></i>
-      </div>
-      <a href="#" class="small-box-footer" onclick="deposit(donor2Account, 20)">Deposit (20) <i class="fa fa-arrow-circle-up"></i></a>
-      <a href="#" class="small-box-footer" onclick="donateAll(donor2Account)">Donate <i class="fa fa-arrow-circle-right"></i></a>
-      <a href="#" class="small-box-footer" onclick="donateAll(donor2Account)">Reuse Unspent <i class="fa fa-arrow-circle-right"></i></a>
-    </div>
+	<body>
+		<div class="row">
+			<div class="col-lg-3 col-xs-6">
+				<div
+					class="small-box bg-orange"
+					style="box-shadow: 5px 5px 5px -2px slategray;"
+				>
+					<div class="inner" style="height: 100px; border: 1px dotted gray;">
+						<h3>Wallet 1</h3>
+						<h4 class="amount-changeable">
+							<i class="fab fa-ethereum"></i>&nbsp;Balance:&nbsp;
+							<span id="balance_donor_1"></span>
+						</h4>
+					</div>
+					<div class="icon">
+						<ion-icon name="wallet-outline"></ion-icon>
+					</div>
+					<a
+						href="#"
+						class="btn btn-secondary btn-sm btn-block"
+						onclick="deposit(donor1Account, 1)"
+						>Deposit (1 ETH)</a
+					>
+					<a
+						href="#"
+						class="btn btn-secondary btn-sm btn-block"
+						onclick="donateAll(donor1Account)"
+						>Donate ETH Balance</a
+					>
+				</div>
+				<div>
+					<div
+						class="small-box bg-orange"
+						style="box-shadow: 5px 5px 5px -2px slategray;"
+					>
+						<div class="inner" style="height: 100px; border: 1px dotted gray;">
+							<h3>Wallet 2</h3>
+							<h4 class="amount-changeable">
+								<i class="fab fa-ethereum"></i>&nbsp;Balance:&nbsp;
+								<span id="balance_donor_2"></span>
+							</h4>
+						</div>
+						<div class="icon">
+							<ion-icon name="wallet-outline"></ion-icon>
+						</div>
+						<a
+							href="#"
+							class="btn btn-secondary btn-sm btn-block"
+							onclick="deposit(donor2Account, 1)"
+							>Deposit (1 ETH)</a
+						>
+						<a
+							href="#"
+							class="btn btn-secondary btn-sm btn-block"
+							onclick="donateAll(donor2Account)"
+							>Donate ETH Balance</a
+						>
+					</div>
+				</div>
+				<div>
+					<div
+						class="small-box bg-orange"
+						style="box-shadow: 5px 5px 5px -2px slategray;"
+					>
+						<div class="inner" style="height: 100px; border: 1px dotted gray;">
+							<h3>Wallet 3</h3>
+							<h4 class="amount-changeable">
+								<i class="fab fa-ethereum"></i>&nbsp;Balance:&nbsp;
+								<span id="balance_donor_3"></span>
+							</h4>
+						</div>
+						<div class="icon">
+							<ion-icon name="wallet-outline"></ion-icon>
+						</div>
+						<a
+							href="#"
+							class="btn btn-secondary btn-sm btn-block"
+							onclick="deposit(donor3Account, 1)"
+							>Deposit (1 ETH)</a
+						>
+						<a
+							href="#"
+							class="btn btn-secondary btn-sm btn-block"
+							onclick="donateAll(donor3Account)"
+							>Donate ETH Balance</a
+						>
+					</div>
+				</div>
+			</div>
+			<!-- ./col -->
+			<div class="col-lg-3 col-xs-6">
+				<!-- small box -->
+				<div
+					class="small-box bg-orange"
+					style="box-shadow: 5px 5px 5px -2px slategray;"
+				>
+					<div class="inner" style="height: 267px; border: 1px dotted gray;">
+						<h3>Escrow</h3>
+						<h4 class="amount-changeable">
+							<i class="fab fa-ethereum"></i>&nbsp;Balance:&nbsp;
+							<span id="balance_charity"></span>
+						</h4>
+						<br />
+						<span class="amount-changeable"><span id="liability"></span></span>
+						<div
+							style="font-style: italic; text-align: center; padding-top: 40px"
+						>
+							Donations held until goals verified.
+						</div>
+					</div>
+					<div class="icon">
+						<ion-icon name="cash-outline"></ion-icon>
+					</div>
+					<a
+						href="#"
+						class="btn btn-secondary btn-sm btn-block"
+						onclick="payBackAll()"
+						>Refund ETH to Donors</a
+					>
+				</div>
 
-  </div>
+				<div
+					class="small-box bg-orange"
+					style="box-shadow: 5px 5px 5px -2px slategray;"
+				>
+					<div class="inner" style="height: 154px; border: 1px dotted gray;">
+						<h3>Investor</h3>
+						<h4 class="amount-changeable">
+							<i class="fab fa-ethereum"></i>&nbsp;Deposited:&nbsp;
+							<span id="balance_investor"></span>
+						</h4>
+						<!-- <p class="amount-changeable" style="font-style: italic;">
+							<span id="coupons"></span> coupons
+						</p> -->
+					</div>
+					<div class="icon">
+						<ion-icon name="speedometer-outline"></ion-icon>
+					</div>
+					<a
+						href="#"
+						class="btn btn-secondary btn-sm btn-block"
+						onclick="depositToInvestor(10)"
+						>Deposit (10 ETH)</a
+					>
+					<a
+						href="#"
+						class="btn btn-secondary btn-sm btn-block"
+						onclick="invest(10)"
+						>Invest (10 ETH)</a
+					>
+					<!-- <a
+						href="#"
+						class="btn btn-secondary btn-sm btn-block"
+						onclick="redeem(1)"
+						>Redeem Coupon</a
+					> -->
+				</div>
+			</div>
+			<div class="col-lg-3 col-xs-6">
+				<div
+					class="small-box bg-orange"
+					style="box-shadow: 5px 5px 5px -2px slategray;"
+				>
+					<div class="inner" style="height: 195px; border: 1px dotted gray;">
+						<h3>Verification</h3>
+						<div
+							style="font-style: italic; text-align: center; padding-top: 52px"
+						>
+							Goal verification releases funds from Escrow.
+						</div>
+					</div>
+					<div class="icon">
+						<ion-icon name="eye-outline"></ion-icon>
+					</div>
+					<a
+						href="#"
+						class="btn btn-secondary btn-sm btn-block"
+						onclick="validateOutcome('Tenancy', 7)"
+						>Breakfast For Learning (Goal: 7 ETH)</a
+					>
+					<a
+						href="#"
+						class="btn btn-secondary btn-sm btn-block"
+						onclick="validateOutcome('Employment', 8)"
+						>Good To Talk (Goal: 8 ETH)</a
+					>
+					<a
+						href="#"
+						class="btn btn-secondary btn-sm btn-block"
+						onclick="validateOutcome('Habitat', 10)"
+						>Habitat For Humanity (Goal: 10 ETH)</a
+					>
+				</div>
+			</div>
+			<div class="col-lg-3 col-xs-6">
+				<div
+					class="small-box bg-orange"
+					style="box-shadow: 5px 5px 5px -2px slategray;"
+				>
+					<div class="inner" style="height: 532px; border: 1px dotted gray;">
+						<h3>Projects</h3>
+						<h4 class="amount-changeable">
+							<i class="fab fa-ethereum"></i>&nbsp;Received:&nbsp;<span
+								id="balance_beneficiary"
+							></span>
+						</h4>
+						<div
+							style="font-style: italic; text-align: center; padding-top: 18px"
+						>
+							Current crowdfunding initiatives.
+						</div>
+						<div class="icon"><ion-icon name="earth-outline"></ion-icon></div>
 
-  <!-- ./col -->
-  <div class="col-lg-3 col-xs-6">
-    <!-- small box -->
-    <div class="small-box bg-yellow">
-      <div class="inner" style="height: 206px">
-        <h3>Project</h3>
-        <h4 class="amount-changeable"><i class="fa fa-database"></i> <span id="balance_charity"></span> dGBP</h4>
-        <p>10% interest rate</p>
-        <p class="amount-changeable"><span id="liability"></span> liability to investors</p>
-        <div style="font-style: italic; text-align: center; padding-top: 0px">
-          Works as an escrow system holding donations until goal payments are authorised by the validator.
-        </div>
-      </div>
-      <div class="icon">
-        <i class="ion ion-ios-list-outline"></i>
-      </div>
-      <a href="#" class="small-box-footer" onclick="payBackAll()"><i class="fa fa-arrow-circle-left"></i> Pay back</a>
-    </div>
-
-    <div class="small-box bg-purple">
-      <div class="inner" style="height: 154px">
-        <h3>Investor Wallet</h3>
-        <h4 class="amount-changeable"><i class="fa fa-database"></i> <span id="balance_investor"></span> dGBP</h4>
-        <p class="amount-changeable"><span id="coupons"></span> coupons</p>
-
-      </div>
-      <div class="icon">
-        <i class="ion ion-ios-list-outline"></i>
-      </div>
-      <a href="#" class="small-box-footer" onclick="invest(100)">Invest (100) <i class="fa fa-arrow-circle-up"></i></a>
-      <a href="#" class="small-box-footer" onclick="redeem(1)">Redeem Coupon (1) <i class="fa fa-arrow-circle-down"></i></a>
-      <a href="#" class="small-box-footer" onclick="depositToInvestor(20)">Deposit (20) <i class="fa fa-arrow-circle-down"></i></a>
-    </div>
-
-  </div>
-  <!-- ./col -->
-  <div class="col-lg-3 col-xs-6">
-    <!-- small box -->
-    <div class="small-box bg-red">
-      <div class="inner" style="height: 432px">
-        <h3>Validator</h3>
-
-        <p></p>
-
-        <div style="font-style: italic; text-align: center; padding-top: 50px">
-          Independent validator (either human or machine) chosen to verify that goals have been achieved and trigger payments from the donations held in escrow.
-        </div>
-      </div>
-      <div class="icon">
-        <i class="ion ion-android-checkbox-outline"></i>
-      </div>
-      <a href="#" class="small-box-footer" onclick="validateOutcome('Tenancy', 200)">Tenancy agreement (200) <i class="fa fa-arrow-circle-right"></i></a>
-      <a href="#" class="small-box-footer" onclick="validateOutcome('Employment', 110)">Employment contract (110) <i class="fa fa-arrow-circle-right"></i></a>
-    </div>
-  </div>
-  <div class="col-lg-3 col-xs-6">
-    <!-- small box -->
-    <div class="small-box bg-green">
-      <div class="inner" style="height: 484px">
-        <h3>Charity</h3>
-
-        <h4 class="amount-changeable"><i class="fa fa-database"></i> <span id="balance_beneficiary"></span> dGBP</h4>
-
-        <div style="font-style: italic; text-align: center; padding-top: 20px">
-          Organisation delivering the social or environmental project (for example, a charity helping homeless people find accommodation and jobs).
-        </div>
-
-      </div>
-      <div class="icon">
-        <i class="ion ion-ios-people-outline"></i>
-      </div>
-    </div>
-  </div>
-  <!-- ./col -->
-</div>
-
-<div class="box box-primary" style="background-color: #F0F0F0; border-color: #ddd">
-  <div class="box-header with-border" style="border-bottom: 1px solid #ddd;">
-    <h3 class="box-title">Blockchain logs</h3>
-  </div>
-  <!-- /.box-header -->
-  <div class="box-body" id="log">
-
-  </div>
-  <!-- /.box-body -->
-</div>
-
-</body>
+						<div style="padding-top: 30px; padding-left: 44px;">
+							<a
+								href="#"
+								data-toggle="popover"
+								title="Breakfast for Learning"
+								data-content="Breakfast for Learning is a national non-profit organization solely dedicated to child nutrition programs in Canada. They provide nutrition grants that allow programs to obtain food, equipment and staff required to meet the needs of their school community; child nutrition education resources and tools to help raise awareness and educate communities about proper nutrition; research to support the vital link between child nutrition and learning; and a strong voice for child nutrition that advocates for national meal programs in Canada and quality nutrition in schools. They know that through feeding hungry children, we also nurture strong minds and provide students with the best chance of success possible."
+								><img
+									class="proj-img-dark"
+									src="app\images\breakfast-for-learning.png"
+									onmouseover="style='box-shadow: 5px 5px 5px -2px black;'"
+									onmouseout="style='box-shadow: 0px 0px 0px bg-orange;'"
+									width="184"
+									height="92"
+							/></a>
+						</div>
+						<div style="padding-top: 30px; padding-left: 44px;">
+							<a
+								href="#"
+								data-toggle="popover"
+								title="What is Good2Talk?"
+								data-content="Good2Talk is a free, confidential service for post-secondary students in Ontario, available 24/7/365. By calling 1-866-925-5454, post-secondary students in Ontario can receive professional counselling and information and referrals for mental health, addictions and well-being."
+								><img
+									class="proj-img"
+									src="app\images\good_to_talk.png"
+									onmouseover="style='box-shadow: 5px 5px 5px -2px black;'"
+									onmouseout="style='box-shadow: 0px 0px 0px bg-orange;'"
+									width="184"
+									height="92"
+							/></a>
+						</div>
+						<div style="padding-top: 30px; padding-left: 44px;">
+							<a
+								href="#"
+								data-toggle="popover"
+								title="Habitat GTA"
+								data-content="Founded in 1988, Habitat GTA is a nonprofit housing organization that believes everyone deserves a safe and decent place to live. We mobilize communities to help working, lower income families build strength, stability, and self-reliance through affordable homeownership. With the help of volunteers, donors, and community partners, we have built over 400 homes for families, including over 1,300 children, in need of safe, decent, and affordable housing."
+								><img
+									class="proj-img-dark"
+									src="app\images\habitat-for-humanity-sm.png"
+									onmouseover="style='box-shadow: 5px 5px 5px -2px black;'"
+									onmouseout="style='box-shadow: 0px 0px 0px bg-orange;'"
+									width="184"
+									height="93"
+							/></a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="icon"><ion-icon name="chevron-down-outline"></ion-icon></div>
+		<div
+			class="box box-secondary"
+			style="margin-top: 20px; padding: 30px; background-color: whitesmoke; box-shadow: 5px 5px 5px -2px slategray;"
+		>
+			<div class="box-header with-border" style="border: 1px dotted gray;">
+				<img src="app\images\ganache2.png" width="112" height="62" />
+				<h4 class="box-title">
+					&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;Transaction Log
+				</h4>
+			</div>
+			<!-- /.box-header -->
+			<div
+				class="box-body"
+				id="log"
+				style="background-color: NAVAJOWHITE; border: 1px dotted gray; border-top: none"
+			></div>
+			<!-- /.box-body -->
+		</div>
+		<script
+			type="module"
+			src="https://unpkg.com/ionicons@5.0.0/dist/ionicons/ionicons.esm.js"
+		></script>
+		<script
+			nomodule=""
+			src="https://unpkg.com/ionicons@5.0.0/dist/ionicons/ionicons.js"
+		></script>
+		<script>
+			$(document).ready(function() {
+				$('[data-toggle="popover"]').popover();
+			});
+		</script>
+	</body>
 </html>

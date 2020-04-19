@@ -10,20 +10,25 @@ module.exports = {
   },
   plugins: [
     // Copy our app's index.html to the build folder.
-    new CopyWebpackPlugin([
-      { from: './app/index.html', to: "index.html" }
-    ]),
-    new webpack.EnvironmentPlugin(['NODE_ENV'])
+    new CopyWebpackPlugin([{
+      from: './app/index.html',
+      to: "index.html"
+    }]),
+    //new webpack.EnvironmentPlugin(['NODE_ENV'])
+    new webpack.DefinePlugin({
+      'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV),
+      'process.env.DEBUG': JSON.stringify(process.env.DEBUG)
+    })
   ],
   module: {
-    rules: [
-      {
-       test: /\.css$/,
-       use: [ 'style-loader', 'css-loader' ]
-      }
-    ],
-    loaders: [
-      { test: /\.json$/, use: 'json-loader' },
+    rules: [{
+      test: /\.css$/,
+      use: ['style-loader', 'css-loader']
+    }],
+    loaders: [{
+        test: /\.json$/,
+        use: 'json-loader'
+      },
       {
         test: /\.js$/,
         exclude: /(node_modules|bower_components)/,
