@@ -2,9 +2,6 @@
 <html>
 	<head>
 		<title>Charitable Project Crowdfunding</title>
-		<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
-		<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
-		<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
 		<link rel="manifest" href="/site.webmanifest" />
 		<link
 			href="https://fonts.googleapis.com/icon?family=Material+Icons"
@@ -34,6 +31,22 @@
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
 		<script src="./app.js"></script>
+		<style>
+			.btn-default {
+				background-color: gray;
+				color: white;
+				border-color: #2f3e48;
+			}
+			.btn-default:hover,
+			.btn-default:focus,
+			.btn-default:active,
+			.btn-default.active,
+			.open .dropdown-toggle.btn-default {
+				background-color: silver;
+				color: black;
+				border-color: #31347b;
+			}
+		</style>
 	</head>
 
 	<body>
@@ -55,14 +68,14 @@
 					</div>
 					<a
 						href="#"
-						class="btn btn-secondary btn-sm btn-block"
-						onclick="deposit(donor1Account, 1)"
+						class="btn btn-default btn-sm btn-block"
+						onclick="deposit(donor1Account, 1); this.blur()"
 						>Deposit (1 ETH)</a
 					>
 					<a
 						href="#"
-						class="btn btn-secondary btn-sm btn-block"
-						onclick="donateAll(donor1Account)"
+						class="btn btn-default btn-sm btn-block"
+						onclick="donateAll(donor1Account); this.blur()"
 						>Donate ETH Balance</a
 					>
 				</div>
@@ -83,14 +96,14 @@
 						</div>
 						<a
 							href="#"
-							class="btn btn-secondary btn-sm btn-block"
-							onclick="deposit(donor2Account, 1)"
+							class="btn btn-default btn-sm btn-block"
+							onclick="deposit(donor2Account, 1); this.blur()"
 							>Deposit (1 ETH)</a
 						>
 						<a
 							href="#"
-							class="btn btn-secondary btn-sm btn-block"
-							onclick="donateAll(donor2Account)"
+							class="btn btn-default btn-sm btn-block"
+							onclick="donateAll(donor2Account); this.blur()"
 							>Donate ETH Balance</a
 						>
 					</div>
@@ -112,14 +125,14 @@
 						</div>
 						<a
 							href="#"
-							class="btn btn-secondary btn-sm btn-block"
-							onclick="deposit(donor3Account, 1)"
+							class="btn btn-default btn-sm btn-block"
+							onclick="deposit(donor3Account, 1); this.blur()"
 							>Deposit (1 ETH)</a
 						>
 						<a
 							href="#"
-							class="btn btn-secondary btn-sm btn-block"
-							onclick="donateAll(donor3Account)"
+							class="btn btn-default btn-sm btn-block"
+							onclick="donateAll(donor3Account); this.blur()"
 							>Donate ETH Balance</a
 						>
 					</div>
@@ -151,9 +164,9 @@
 					</div>
 					<a
 						href="#"
-						class="btn btn-secondary btn-sm btn-block"
-						onclick="payBackAll()"
-						>Refund ETH to Donors</a
+						class="btn btn-default btn-sm btn-block"
+						onclick="payBackAll(); this.blur()"
+						>Refund Donations</a
 					>
 				</div>
 
@@ -167,31 +180,22 @@
 							<i class="fab fa-ethereum"></i>&nbsp;Deposited:&nbsp;
 							<span id="balance_investor"></span>
 						</h4>
-						<!-- <p class="amount-changeable" style="font-style: italic;">
-							<span id="coupons"></span> coupons
-						</p> -->
 					</div>
 					<div class="icon">
 						<ion-icon name="speedometer-outline"></ion-icon>
 					</div>
 					<a
 						href="#"
-						class="btn btn-secondary btn-sm btn-block"
-						onclick="depositToInvestor(10)"
+						class="btn btn-default btn-sm btn-block"
+						onclick="depositToInvestor(10); this.blur()"
 						>Deposit (10 ETH)</a
 					>
 					<a
 						href="#"
-						class="btn btn-secondary btn-sm btn-block"
-						onclick="invest(10)"
+						class="btn btn-default btn-sm btn-block"
+						onclick="invest(10); this.blur()"
 						>Invest (10 ETH)</a
 					>
-					<!-- <a
-						href="#"
-						class="btn btn-secondary btn-sm btn-block"
-						onclick="redeem(1)"
-						>Redeem Coupon</a
-					> -->
 				</div>
 			</div>
 			<div class="col-lg-3 col-xs-6">
@@ -212,20 +216,20 @@
 					</div>
 					<a
 						href="#"
-						class="btn btn-secondary btn-sm btn-block"
-						onclick="validateOutcome('Tenancy', 7)"
+						class="btn btn-default btn-sm btn-block"
+						onclick="validateOutcome('Tenancy', 7); this.blur()"
 						>Breakfast For Learning (Goal: 7 ETH)</a
 					>
 					<a
 						href="#"
-						class="btn btn-secondary btn-sm btn-block"
-						onclick="validateOutcome('Employment', 8)"
+						class="btn btn-default btn-sm btn-block"
+						onclick="validateOutcome('Employment', 8); this.blur()"
 						>Good To Talk (Goal: 8 ETH)</a
 					>
 					<a
 						href="#"
-						class="btn btn-secondary btn-sm btn-block"
-						onclick="validateOutcome('Habitat', 10)"
+						class="btn btn-default btn-sm btn-block"
+						onclick="validateOutcome('Habitat', 10); this.blur()"
 						>Habitat For Humanity (Goal: 10 ETH)</a
 					>
 				</div>

@@ -1,11 +1,11 @@
-// Import the page's CSS. Webpack will know what to do with it.
-import '../stylesheets/app.css';
+// import stylesheet
+import '../css/app.css';
 
-// Import libraries we need.
+// import libraries
 import { default as Web3 } from 'web3';
 import { default as contract } from 'truffle-contract';
 
-// Import contract artifacts and turn them into usable abstractions
+// import contract artifacts and turn them into usable abstractions
 import alice_token_artifacts from '../../build/contracts/AliceToken.json';
 import wallet_artifacts from '../../build/contracts/DonationWallet.json';
 import project_with_bonds_artifacts from '../../build/contracts/ProjectWithBonds.json';
@@ -51,13 +51,10 @@ function refreshBalance() {
 	showBalance(wallets[donor2Account].address, 'balance_donor_2');
 	showBalance(wallets[donor3Account].address, 'balance_donor_3');
 	showBalance(InvestorContract.address, 'balance_investor');
-	console.log('showBalance IC: ' + InvestorContract.address);
 	showProjectTotal('balance_charity');
 	showBalance(beneficiaryAccount, 'balance_beneficiary');
 	showCoupons(InvestorContract.address, 'coupons');
-	console.log('showCoupons IC: ' + InvestorContract.address);
 	showLiability('liability');
-	//   showAllImpacts();
 }
 
 function showBalance(account, element) {
@@ -69,9 +66,6 @@ function showBalance(account, element) {
 
 function showCoupons(account, element) {
 	CouponContract.balanceOf(account).then(function(value) {
-		console.log(
-			'showCoupons --' + 'account:' + account + ' element:' + element
-		);
 		lazyValueUpdate(element, value.valueOf());
 	});
 }
@@ -103,30 +97,24 @@ function lazyValueUpdate(element, value) {
 	}
 }
 
-// function showAllImpacts() {
-//   showImpact('Tenancy');
-//   showImpact('Employment');
-//   showImpact('Habitat');
+// function showImpact(name) {
+// 	ImpactContract.getImpactCount.call(name).then(function(c) {
+// 		var count = c.valueOf();
+// 		alert(name + ' impact: ' + count);
+// 		for (var i = 0; i < count; i++) {
+// 			(function(index) {
+// 				ImpactContract.getImpactDonor.call(name, i).then(function(address) {
+// 					alert(name + ' address[' + index + ']: ' + address);
+// 					ImpactContract.getImpactValue
+// 						.call(name, address)
+// 						.then(function(value) {
+// 							alert(name + ' value[' + index + ']: ' + value);
+// 						});
+// 				});
+// 			})(i);
+// 		}
+// 	});
 // }
-
-function showImpact(name) {
-	ImpactContract.getImpactCount.call(name).then(function(c) {
-		var count = c.valueOf();
-		alert(name + ' impact: ' + count);
-		for (var i = 0; i < count; i++) {
-			(function(index) {
-				ImpactContract.getImpactDonor.call(name, i).then(function(address) {
-					alert(name + ' address[' + index + ']: ' + address);
-					ImpactContract.getImpactValue
-						.call(name, address)
-						.then(function(value) {
-							alert(name + ' value[' + index + ']: ' + value);
-						});
-				});
-			})(i);
-		}
-	});
-}
 
 function setTriggersForElementsWithChangeableAmounts() {
 	$('.amount-changeable').on('DOMSubtreeModified', function(event) {
@@ -136,7 +124,7 @@ function setTriggersForElementsWithChangeableAmounts() {
 
 function blinkElement(el) {
 	var timeout = 30;
-	// Wait until all events (like animation) on the element finish
+	// wait until all events on the element finish
 	el.promise().done(function() {
 		// disable trigger for current element to avoid double blinking
 		el.off('DOMSubtreeModified');
@@ -204,15 +192,15 @@ window.invest = async function(value) {
 	});
 };
 
-window.redeem = async function(value) {
-	InvestorContract.redeemCoupons(value, PROJECT_NAME, {
-		from: aliceAccount,
-		gas: 1000000
-	}).then(function(tx) {
-		refreshBalance();
-		printTx('COUPON REDEMPTION: ', tx);
-	});
-};
+// window.redeem = async function(value) {
+// 	InvestorContract.redeemCoupons(value, PROJECT_NAME, {
+// 		from: aliceAccount,
+// 		gas: 1000000
+// 	}).then(function(tx) {
+// 		refreshBalance();
+// 		printTx('COUPON REDEMPTION: ', tx);
+// 	});
+// };
 
 window.donateAll = async function(account) {
 	var total = await TokenContract.balanceOf(wallets[account].address);
@@ -248,9 +236,7 @@ function linkImpact(name) {
 	return ImpactContract.getImpactUnmatchedValue
 		.call(name, { from: aliceAccount })
 		.then(function(val) {
-			console.log('UNLINKED: ' + val);
 			if (val > 0) {
-				console.log('LINK IMPACT: ');
 				return ImpactContract.linkImpact(name, {
 					from: aliceAccount,
 					gas: 3000000
@@ -296,13 +282,6 @@ function printContract(name, contract) {
 			contract.address
 	);
 }
-
-// function setupWeb3Filter() {
-// 	var filter = web3.eth.filter({});
-// 	filter.watch(function(error, log) {
-// 		printTx(log.transactionHash);
-// 	});
-// }
 
 async function deployToken() {
 	AliceToken.setProvider(web3.currentProvider);
