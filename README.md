@@ -28,7 +28,7 @@ Install all of the node-js dependencies:
     npm install
 
 Connection to a blockchain node is defined in truffle.js:
-
+```
     networks: {
         dev: {
           network_id: "*",
@@ -37,7 +37,7 @@ Connection to a blockchain node is defined in truffle.js:
           port: '8545'
         }
     }
-
+```
 Use Ganache as the default node:
 
     npm install -g ganache-cli
