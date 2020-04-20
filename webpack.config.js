@@ -9,14 +9,13 @@ module.exports = {
 		filename: 'app.js',
 	},
 	plugins: [
-		// Copy our app's index.html to the build folder.
+		// Copy index.html to the build folder.
 		new CopyWebpackPlugin([
 			{
 				from: './app/index.html',
 				to: 'index.html',
 			},
 		]),
-		//new webpack.EnvironmentPlugin(['NODE_ENV'])
 		new webpack.DefinePlugin({
 			'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV),
 			'process.env.DEBUG': JSON.stringify(process.env.DEBUG),
