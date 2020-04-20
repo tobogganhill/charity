@@ -90,7 +90,7 @@ function blink(el) {
 		// disable trigger for current element to avoid double blinking
 		el.off('DOMSubtreeModified');
 		let startFontSize = el.css('font-size');
-		let increasedFontSize = parseInt(startFontSize) * 1.5 + 'px';
+		let increasedFontSize = parseInt(startFontSize) * 1.7 + 'px';
 		el.animate(
 			{
 				'font-size': increasedFontSize,
@@ -230,7 +230,6 @@ async function deployProject() {
 	Catalog.setProvider(web3.currentProvider);
 	ImpactRegistry.setProvider(web3.currentProvider);
 	Linker.setProvider(web3.currentProvider);
-	// Coupon.setProvider(web3.currentProvider);
 	ProjectContract = await Bonds.new(PROJECT_NAME, 0, 100, 1000, {
 		from: tokenAccount,
 		gas: 5000000,

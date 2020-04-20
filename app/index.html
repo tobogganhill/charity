@@ -54,7 +54,7 @@
 					class="small-box bg-orange"
 					style="box-shadow: 5px 5px 5px -4px black;"
 				>
-					<div class="inner" style="height: 100px; border: 1px dotted gray;">
+					<div class="inner" style="height: 110px; border: 1px dotted gray;">
 						<h3>Wallet 1</h3>
 						<h4 class="amount-changeable">
 							<i class="fab fa-ethereum"></i>&nbsp;Balance:&nbsp;
@@ -82,7 +82,7 @@
 						class="small-box bg-orange"
 						style="box-shadow: 5px 5px 5px -4px black;"
 					>
-						<div class="inner" style="height: 100px; border: 1px dotted gray;">
+						<div class="inner" style="height: 110px; border: 1px dotted gray;">
 							<h3>Wallet 2</h3>
 							<h4 class="amount-changeable">
 								<i class="fab fa-ethereum"></i>&nbsp;Balance:&nbsp;
@@ -111,7 +111,7 @@
 						class="small-box bg-orange"
 						style="box-shadow: 5px 5px 5px -4px black;"
 					>
-						<div class="inner" style="height: 100px; border: 1px dotted gray;">
+						<div class="inner" style="height: 110px; border: 1px dotted gray;">
 							<h3>Wallet 3</h3>
 							<h4 class="amount-changeable">
 								<i class="fab fa-ethereum"></i>&nbsp;Balance:&nbsp;
@@ -149,13 +149,8 @@
 							<i class="fab fa-ethereum"></i>&nbsp;Balance:&nbsp;
 							<span id="balance_charity"></span>
 						</h4>
-						<br />
+						<br /><br />
 						<span class="amount-changeable"><span id="liability"></span></span>
-						<div
-							style="font-style: italic; text-align: center; padding-top: 40px"
-						>
-							Donations held until goals verified.
-						</div>
 					</div>
 					<div class="icon">
 						<ion-icon name="cash-outline"></ion-icon>
@@ -172,7 +167,7 @@
 					class="small-box bg-orange"
 					style="box-shadow: 5px 5px 5px -4px black;"
 				>
-					<div class="inner" style="height: 154px; border: 1px dotted gray;">
+					<div class="inner" style="height: 184px; border: 1px dotted gray;">
 						<h3>Investor</h3>
 						<h4 class="amount-changeable">
 							<i class="fab fa-ethereum"></i>&nbsp;Deposited:&nbsp;
@@ -201,13 +196,8 @@
 					class="small-box bg-orange"
 					style="box-shadow: 5px 5px 5px -4px black;"
 				>
-					<div class="inner" style="height: 195px; border: 1px dotted gray;">
+					<div class="inner" style="height: 158px; border: 1px dotted gray;">
 						<h3>Verification</h3>
-						<div
-							style="font-style: italic; text-align: center; padding-top: 52px"
-						>
-							Goal verification releases funds from Escrow.
-						</div>
 					</div>
 					<div class="icon">
 						<ion-icon name="eye-outline"></ion-icon>
@@ -215,14 +205,20 @@
 					<a
 						href="#"
 						class="btn btn-default btn-sm btn-block"
-						onclick="validateOutcome('Tenancy', 7); this.blur()"
+						onclick="validateOutcome('Breakfast', 7); this.blur()"
 						>Breakfast For Learning (Goal: 7 ETH)</a
 					>
 					<a
 						href="#"
 						class="btn btn-default btn-sm btn-block"
-						onclick="validateOutcome('Employment', 8); this.blur()"
+						onclick="validateOutcome('Talk', 8); this.blur()"
 						>Good To Talk (Goal: 8 ETH)</a
+					>
+					<a
+						href="#"
+						class="btn btn-default btn-sm btn-block"
+						onclick="validateOutcome('Tree', 5); this.blur()"
+						>Not Far From The Tree (Goal: 5 ETH)</a
 					>
 					<a
 						href="#"
@@ -237,21 +233,16 @@
 					class="small-box bg-orange"
 					style="box-shadow: 5px 5px 5px -4px black;"
 				>
-					<div class="inner" style="height: 532px; border: 1px dotted gray;">
+					<div class="inner" style="height: 562px; border: 1px dotted gray;">
 						<h3>Projects</h3>
 						<h4 class="amount-changeable">
 							<i class="fab fa-ethereum"></i>&nbsp;Received:&nbsp;<span
 								id="balance_beneficiary"
 							></span>
 						</h4>
-						<div
-							style="font-style: italic; text-align: center; padding-top: 18px"
-						>
-							Current crowdfunding initiatives.
-						</div>
 						<div class="icon"><ion-icon name="earth-outline"></ion-icon></div>
 
-						<div style="padding-top: 30px; padding-left: 49px;">
+						<div style="padding-top: 20px; padding-left: 49px;">
 							<a
 								href="#"
 								data-toggle="popover"
@@ -266,7 +257,7 @@
 									height="92"
 							/></a>
 						</div>
-						<div style="padding-top: 30px; padding-left: 49px;">
+						<div style="padding-top: 10px; padding-left: 49px;">
 							<a
 								href="#"
 								data-toggle="popover"
@@ -281,7 +272,22 @@
 									height="92"
 							/></a>
 						</div>
-						<div style="padding-top: 30px; padding-left: 49px;">
+						<div style="padding-top: 10px; padding-left: 49px;">
+							<a
+								href="#"
+								data-toggle="popover"
+								title="Not Far From The Tree"
+								data-content="Since 2008, Not Far From The Tree has picked and shared over 182,000 pounds of fruit across Toronto. Our organization is made possible thanks to the generous support of over 1,800 tree registrants and 2,200 fruit pickers. A third of this harvest has been shared directly with our 35 social service agency partners."
+								><img
+									class="proj-img-dark"
+									src="app\img\nfftt.png"
+									onmouseover="style='box-shadow: 5px 5px 5px -4px black;'"
+									onmouseout="style='box-shadow: 0px 0px 0px bg-orange;'"
+									width="184"
+									height="93"
+							/></a>
+						</div>
+						<div style="padding-top: 10px; padding-left: 49px;">
 							<a
 								href="#"
 								data-toggle="popover"
