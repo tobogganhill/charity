@@ -1,5 +1,5 @@
 let Project = artifacts.require('Project');
-let AliceToken = artifacts.require('AliceToken');
+let Token = artifacts.require('Token');
 let ImpactRegistry = artifacts.require('ImpactRegistry');
 
 require('./test-setup');
@@ -15,7 +15,7 @@ contract('Multiple donations', function(accounts) {
 	});
 
 	it('should link the project to token', async function() {
-		token = await AliceToken.new();
+		token = await Token.new();
 		await project.setToken(token.address, { from: main });
 	});
 

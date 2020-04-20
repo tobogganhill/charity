@@ -4,7 +4,7 @@ import '../css/app.css';
 import { default as Web3 } from 'web3';
 import { default as contract } from 'truffle-contract';
 // import contract artifacts and turn them into usable abstractions
-import token_artifacts from '../../build/contracts/AliceToken.json';
+import token_artifacts from '../../build/contracts/Token.json';
 import wallet_artifacts from '../../build/contracts/DonationWallet.json';
 import bonds_artifacts from '../../build/contracts/ProjectWithBonds.json';
 import catalog_artifacts from '../../build/contracts/ProjectCatalog.json';

@@ -7,13 +7,13 @@ import 'openzeppelin-solidity/contracts/token/ERC20/StandardToken.sol';
 import 'openzeppelin-solidity/contracts/math/SafeMath.sol';
 
 
-contract AliceToken is StandardToken, Ownable {
+contract Token is StandardToken, Ownable {
 	using SafeMath for uint256;
 
-	string public name = 'Alice Token';
+	string public name = 'Token';
 	uint8 public decimals = 2;
-	string public symbol = 'ALT';
-	string public version = 'ALT 1.0';
+	string public symbol = 'TOK';
+	string public version = 'TOK 1.0';
 
 	function mint(address _to, uint256 _value) public onlyOwner {
 		totalSupply_ = totalSupply_.add(_value);
