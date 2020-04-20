@@ -1,15 +1,14 @@
 pragma solidity ^0.4.24;
 
-import 'openzeppelin-solidity/contracts/ownership/Ownable.sol';
-import './ImpactRegistry.sol';
+import "openzeppelin-solidity/contracts/ownership/Ownable.sol";
+import "./ImpactRegistry.sol";
 
 
 contract ImpactLinker is Ownable {
-
     ImpactRegistry public registry;
 
     modifier onlyRegistry {
-        require (msg.sender == address(registry));
+        require(msg.sender == address(registry));
         _;
     }
 

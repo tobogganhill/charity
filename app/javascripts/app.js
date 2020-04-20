@@ -4,14 +4,14 @@ import '../css/app.css';
 import { default as Web3 } from 'web3';
 import { default as contract } from 'truffle-contract';
 // import contract artifacts and turn them into usable abstractions
-import token_artifacts from '../../build/contracts/Token.json';
+import token_artifacts from '../../build/contracts/AliceToken.json';
 import wallet_artifacts from '../../build/contracts/DonationWallet.json';
 import bonds_artifacts from '../../build/contracts/ProjectWithBonds.json';
 import catalog_artifacts from '../../build/contracts/ProjectCatalog.json';
 import impact_registry_artifacts from '../../build/contracts/ImpactRegistry.json';
 import linker_artifacts from '../../build/contracts/FlexibleImpactLinker.json';
 import investor_artifacts from '../../build/contracts/InvestmentWallet.json';
-// import coupon_artifacts from '../../build/contracts/Coupon.json';
+
 // Contracts
 let Token = contract(token_artifacts);
 let Wallet = contract(wallet_artifacts);
@@ -20,7 +20,6 @@ let Catalog = contract(catalog_artifacts);
 let ImpactRegistry = contract(impact_registry_artifacts);
 let Linker = contract(linker_artifacts);
 let Investor = contract(investor_artifacts);
-// let Coupon = contract(coupon_artifacts);
 
 const PROJECT_NAME = 'DEMO_PROJECT';
 
@@ -94,13 +93,13 @@ function blink(el) {
 		let increasedFontSize = parseInt(startFontSize) * 1.4 + 'px';
 		el.animate(
 			{
-				'font-size': increasedFontSize
+				'font-size': increasedFontSize,
 			},
 			timeout,
 			function() {
 				el.animate(
 					{
-						'font-size': startFontSize
+						'font-size': startFontSize,
 					},
 					timeout,
 					function() {
@@ -117,7 +116,7 @@ function blink(el) {
 window.deposit = function(account, value) {
 	TokenContract.mint(wallets[account].address, value, {
 		from: tokenAccount,
-		gas: 1000000
+		gas: 1000000,
 	}).then(function(tx) {
 		refreshBalance();
 		printTx('DONOR DEPOSIT: ', tx);
@@ -126,7 +125,7 @@ window.deposit = function(account, value) {
 window.depositToInvestor = async function(value) {
 	TokenContract.mint(InvestorContract.address, value, {
 		from: tokenAccount,
-		gas: 1000000
+		gas: 1000000,
 	}).then(function(tx) {
 		refreshBalance();
 		printTx('INVESTOR DEPOSIT: ', tx);
@@ -143,7 +142,7 @@ window.donate = async function(account, value) {
 window.invest = async function(value) {
 	InvestorContract.invest(value, PROJECT_NAME, {
 		from: tokenAccount,
-		gas: 1000000
+		gas: 1000000,
 	}).then(function(tx) {
 		refreshBalance();
 		printTx('INVESTMENT: ', tx);
@@ -156,7 +155,7 @@ window.donateAll = async function(account) {
 window.validateOutcome = async function(name, value) {
 	let tx = await ProjectContract.validateOutcome(name, value, {
 		from: validatorAccount,
-		gas: 500000
+		gas: 500000,
 	});
 	printTx('VERIFICATION: ', tx);
 	refreshBalance();
@@ -165,7 +164,7 @@ window.validateOutcome = async function(name, value) {
 window.payBack = async function(account) {
 	let tx = await ProjectContract.payBack(wallets[account].address, {
 		from: tokenAccount,
-		gas: 1000000
+		gas: 1000000,
 	});
 	refreshBalance();
 	printTx('REFUND: ' + account, tx);
@@ -182,7 +181,7 @@ function linkImpact(name) {
 			if (val > 0) {
 				return ImpactContract.linkImpact(name, {
 					from: tokenAccount,
-					gas: 3000000
+					gas: 3000000,
 				}).then(function() {
 					return linkImpact(name);
 				});
@@ -234,49 +233,49 @@ async function deployProject() {
 	// Coupon.setProvider(web3.currentProvider);
 	ProjectContract = await Bonds.new(PROJECT_NAME, 0, 100, 1000, {
 		from: tokenAccount,
-		gas: 5000000
+		gas: 5000000,
 	});
 	printContract('PROJECT: ', ProjectContract);
 	await ProjectContract.setValidator(validatorAccount, {
 		from: tokenAccount,
-		gas: 3000000
+		gas: 3000000,
 	});
 	await ProjectContract.setBeneficiary(beneficiaryAccount, {
 		from: tokenAccount,
-		gas: 3000000
+		gas: 3000000,
 	});
 	await ProjectContract.setToken(TokenContract.address, {
 		from: tokenAccount,
-		gas: 3000000
+		gas: 3000000,
 	});
 	ImpactContract = await ImpactRegistry.new(ProjectContract.address, {
 		from: tokenAccount,
-		gas: 3000000
+		gas: 3000000,
 	});
 	let linker = await Linker.new(ImpactContract.address, 10, {
 		from: tokenAccount,
-		gas: 3000000
+		gas: 3000000,
 	});
 	await ImpactContract.setLinker(linker.address, {
 		from: tokenAccount,
-		gas: 3000000
+		gas: 3000000,
 	});
 	await ProjectContract.setImpactRegistry(ImpactContract.address, {
 		from: tokenAccount,
-		gas: 3000000
+		gas: 3000000,
 	});
 	CatalogContract = await Catalog.new({ from: tokenAccount, gas: 3000000 });
 	printContract('CATALOG: ', CatalogContract);
 	await CatalogContract.addProject(PROJECT_NAME, ProjectContract.address, {
 		from: tokenAccount,
-		gas: 3000000
+		gas: 3000000,
 	});
 }
 async function deployWallet(donor) {
 	Wallet.setProvider(web3.currentProvider);
 	wallets[donor] = await Wallet.new(CatalogContract.address, {
 		from: tokenAccount,
-		gas: 3000000
+		gas: 3000000,
 	});
 	printContract('DONOR: ', wallets[donor]);
 }
@@ -284,7 +283,7 @@ async function deployInvestorWallet() {
 	Investor.setProvider(web3.currentProvider);
 	InvestorContract = await Investor.new(CatalogContract.address, {
 		from: tokenAccount,
-		gas: 3000000
+		gas: 3000000,
 	});
 	printContract('INVESTOR: ', InvestorContract);
 }

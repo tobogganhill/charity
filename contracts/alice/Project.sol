@@ -16,7 +16,7 @@ contract Project is Ownable {
     address public validatorAddress;
     address public beneficiaryAddress;
     address public IMPACT_REGISTRY_ADDRESS;
-    // percentage of funds immediately to a charity
+    // percentage of funds to transfer to a charity immediately
     uint8 public upfrontPaymentPercentage;
 
     /* iterate over donations */
