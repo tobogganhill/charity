@@ -5,7 +5,7 @@
 output=$(nc -z localhost 7545; echo $?)
 [ $output -eq "0" ] && trpc_running=true
 if [ ! $trpc_running ]; then
-  echo "Starting our own ganache node instance"
+  echo "Starting ganache node instance"
   # create 100 accounts for load tests
   yarn run ganache-cli -a 100 -i 3 \
   > /dev/null &
