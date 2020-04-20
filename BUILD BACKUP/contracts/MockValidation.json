@@ -1,0 +1,2873 @@
+{
+  "contractName": "MockValidation",
+  "abi": [
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": false,
+          "name": "time",
+          "type": "uint256"
+        },
+        {
+          "indexed": true,
+          "name": "validator",
+          "type": "address"
+        },
+        {
+          "indexed": false,
+          "name": "outcome",
+          "type": "string"
+        },
+        {
+          "indexed": false,
+          "name": "value",
+          "type": "uint256"
+        }
+      ],
+      "name": "ValidationEvent",
+      "type": "event"
+    },
+    {
+      "constant": false,
+      "inputs": [
+        {
+          "name": "outcome",
+          "type": "string"
+        },
+        {
+          "name": "value",
+          "type": "uint256"
+        }
+      ],
+      "name": "validate",
+      "outputs": [],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [],
+      "name": "getValidationsCount",
+      "outputs": [
+        {
+          "name": "count",
+          "type": "uint256"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [
+        {
+          "name": "index",
+          "type": "uint256"
+        }
+      ],
+      "name": "getValidatorByIndex",
+      "outputs": [
+        {
+          "name": "validator",
+          "type": "address"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [
+        {
+          "name": "index",
+          "type": "uint256"
+        }
+      ],
+      "name": "getOutcomeByIndex",
+      "outputs": [
+        {
+          "name": "outcome",
+          "type": "string"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [
+        {
+          "name": "index",
+          "type": "uint256"
+        }
+      ],
+      "name": "getValueByIndex",
+      "outputs": [
+        {
+          "name": "value",
+          "type": "uint256"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    }
+  ],
+  "metadata": "{\"compiler\":{\"version\":\"0.4.26+commit.4563c3fc\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"constant\":true,\"inputs\":[{\"name\":\"index\",\"type\":\"uint256\"}],\"name\":\"getValidatorByIndex\",\"outputs\":[{\"name\":\"validator\",\"type\":\"address\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":false,\"inputs\":[{\"name\":\"outcome\",\"type\":\"string\"},{\"name\":\"value\",\"type\":\"uint256\"}],\"name\":\"validate\",\"outputs\":[],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[],\"name\":\"getValidationsCount\",\"outputs\":[{\"name\":\"count\",\"type\":\"uint256\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[{\"name\":\"index\",\"type\":\"uint256\"}],\"name\":\"getValueByIndex\",\"outputs\":[{\"name\":\"value\",\"type\":\"uint256\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[{\"name\":\"index\",\"type\":\"uint256\"}],\"name\":\"getOutcomeByIndex\",\"outputs\":[{\"name\":\"outcome\",\"type\":\"string\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"name\":\"time\",\"type\":\"uint256\"},{\"indexed\":true,\"name\":\"validator\",\"type\":\"address\"},{\"indexed\":false,\"name\":\"outcome\",\"type\":\"string\"},{\"indexed\":false,\"name\":\"value\",\"type\":\"uint256\"}],\"name\":\"ValidationEvent\",\"type\":\"event\"}],\"devdoc\":{\"methods\":{}},\"userdoc\":{\"methods\":{}}},\"settings\":{\"compilationTarget\":{\"/C/Users/tobog/Documents/GitHub/charity/contracts/alice/MockValidation.sol\":\"MockValidation\"},\"evmVersion\":\"byzantium\",\"libraries\":{},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"/C/Users/tobog/Documents/GitHub/charity/contracts/alice/MockValidation.sol\":{\"keccak256\":\"0x4b7aa8450a2b4716909abce037b95668ee6c6d014fc532e396723a41418764f1\",\"urls\":[\"bzzr://fdc8410fdcd18507a1acb16164062f089419b9562e5471fbb06ac75bdd9da4de\"]}},\"version\":1}",
+  "bytecode": "0x608060405234801561001057600080fd5b50610677806100206000396000f30060806040526004361061006d576000357c0100000000000000000000000000000000000000000000000000000000900463ffffffff16806330af41b3146100725780637ee0cda4146100df57806381e8927b14610152578063dbaf72471461017d578063df4adb94146101be575b600080fd5b34801561007e57600080fd5b5061009d60048036038101908080359060200190929190505050610264565b604051808273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200191505060405180910390f35b3480156100eb57600080fd5b50610150600480360381019080803590602001908201803590602001908080601f0160208091040260200160405190810160405280939291908181526020018383808284378201915050505050509192919290803590602001909291905050506102ad565b005b34801561015e57600080fd5b50610167610470565b6040518082815260200191505060405180910390f35b34801561018957600080fd5b506101a86004803603810190808035906020019092919050505061047c565b6040518082815260200191505060405180910390f35b3480156101ca57600080fd5b506101e9600480360381019080803590602001909291905050506104a5565b6040518080602001828103825283818151815260200191508051906020019080838360005b8381101561022957808201518184015260208101905061020e565b50505050905090810190601f1680156102565780820380516001836020036101000a031916815260200191505b509250505060405180910390f35b6000808281548110151561027457fe5b906000526020600020906004020160010160009054906101000a900473ffffffffffffffffffffffffffffffffffffffff169050919050565b6102b5610567565b6080604051908101604052804281526020013373ffffffffffffffffffffffffffffffffffffffff168152602001848152602001838152509050600081908060018154018082558091505090600182039060005260206000209060040201600090919290919091506000820151816000015560208201518160010160006101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff160217905550604082015181600201908051906020019061038a9291906105a6565b5060608201518160030155505050806020015173ffffffffffffffffffffffffffffffffffffffff167f9ab76df04fa8bcd90e76e368031d77fc34a93a7d86fcf2b098aa02850ad7c6638260000151836040015184606001516040518084815260200180602001838152602001828103825284818151815260200191508051906020019080838360005b8381101561042f578082015181840152602081019050610414565b50505050905090810190601f16801561045c5780820380516001836020036101000a031916815260200191505b5094505050505060405180910390a2505050565b60008080549050905090565b6000808281548110151561048c57fe5b9060005260206000209060040201600301549050919050565b60606000828154811015156104b657fe5b90600052602060002090600402016002018054600181600116156101000203166002900480601f01602080910402602001604051908101604052809291908181526020018280546001816001161561010002031660029004801561055b5780601f106105305761010080835404028352916020019161055b565b820191906000526020600020905b81548152906001019060200180831161053e57829003601f168201915b50505050509050919050565b60806040519081016040528060008152602001600073ffffffffffffffffffffffffffffffffffffffff16815260200160608152602001600081525090565b828054600181600116156101000203166002900490600052602060002090601f016020900481019282601f106105e757805160ff1916838001178555610615565b82800160010185558215610615579182015b828111156106145782518255916020019190600101906105f9565b5b5090506106229190610626565b5090565b61064891905b8082111561064457600081600090555060010161062c565b5090565b905600a165627a7a72305820ac7b427576add83cec33d12d79474afcd02740c95203a3063e50c74150ea58dd0029",
+  "deployedBytecode": "0x60806040526004361061006d576000357c0100000000000000000000000000000000000000000000000000000000900463ffffffff16806330af41b3146100725780637ee0cda4146100df57806381e8927b14610152578063dbaf72471461017d578063df4adb94146101be575b600080fd5b34801561007e57600080fd5b5061009d60048036038101908080359060200190929190505050610264565b604051808273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200191505060405180910390f35b3480156100eb57600080fd5b50610150600480360381019080803590602001908201803590602001908080601f0160208091040260200160405190810160405280939291908181526020018383808284378201915050505050509192919290803590602001909291905050506102ad565b005b34801561015e57600080fd5b50610167610470565b6040518082815260200191505060405180910390f35b34801561018957600080fd5b506101a86004803603810190808035906020019092919050505061047c565b6040518082815260200191505060405180910390f35b3480156101ca57600080fd5b506101e9600480360381019080803590602001909291905050506104a5565b6040518080602001828103825283818151815260200191508051906020019080838360005b8381101561022957808201518184015260208101905061020e565b50505050905090810190601f1680156102565780820380516001836020036101000a031916815260200191505b509250505060405180910390f35b6000808281548110151561027457fe5b906000526020600020906004020160010160009054906101000a900473ffffffffffffffffffffffffffffffffffffffff169050919050565b6102b5610567565b6080604051908101604052804281526020013373ffffffffffffffffffffffffffffffffffffffff168152602001848152602001838152509050600081908060018154018082558091505090600182039060005260206000209060040201600090919290919091506000820151816000015560208201518160010160006101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff160217905550604082015181600201908051906020019061038a9291906105a6565b5060608201518160030155505050806020015173ffffffffffffffffffffffffffffffffffffffff167f9ab76df04fa8bcd90e76e368031d77fc34a93a7d86fcf2b098aa02850ad7c6638260000151836040015184606001516040518084815260200180602001838152602001828103825284818151815260200191508051906020019080838360005b8381101561042f578082015181840152602081019050610414565b50505050905090810190601f16801561045c5780820380516001836020036101000a031916815260200191505b5094505050505060405180910390a2505050565b60008080549050905090565b6000808281548110151561048c57fe5b9060005260206000209060040201600301549050919050565b60606000828154811015156104b657fe5b90600052602060002090600402016002018054600181600116156101000203166002900480601f01602080910402602001604051908101604052809291908181526020018280546001816001161561010002031660029004801561055b5780601f106105305761010080835404028352916020019161055b565b820191906000526020600020905b81548152906001019060200180831161053e57829003601f168201915b50505050509050919050565b60806040519081016040528060008152602001600073ffffffffffffffffffffffffffffffffffffffff16815260200160608152602001600081525090565b828054600181600116156101000203166002900490600052602060002090601f016020900481019282601f106105e757805160ff1916838001178555610615565b82800160010185558215610615579182015b828111156106145782518255916020019190600101906105f9565b5b5090506106229190610626565b5090565b61064891905b8082111561064457600081600090555060010161062c565b5090565b905600a165627a7a72305820ac7b427576add83cec33d12d79474afcd02740c95203a3063e50c74150ea58dd0029",
+  "sourceMap": "188:1123:4:-;;;;8:9:-1;5:2;;;30:1;27;20:12;5:2;188:1123:4;;;;;;;",
+  "deployedSourceMap": "188:1123:4:-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;898:138;;8:9:-1;5:2;;;30:1;27;20:12;5:2;898:138:4;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;478:293;;8:9:-1;5:2;;;30:1;27;20:12;5:2;478:293:4;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;779:111;;8:9:-1;5:2;;;30:1;27;20:12;5:2;779:111:4;;;;;;;;;;;;;;;;;;;;;;;1183:123;;8:9:-1;5:2;;;30:1;27;20:12;5:2;1183:123:4;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;1044:131;;8:9:-1;5:2;;;30:1;27;20:12;5:2;1044:131:4;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;23:1:-1;8:100;33:3;30:1;27:10;8:100;;;99:1;94:3;90:11;84:18;80:1;75:3;71:11;64:39;52:2;49:1;45:10;40:15;;8:100;;;12:14;1044:131:4;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;898:138;963:17;1000:11;1012:5;1000:18;;;;;;;;;;;;;;;;;;;;:28;;;;;;;;;;;;993:35;;898:138;;;:::o;478:293::-;542:28;;:::i;:::-;573:43;;;;;;;;;584:3;573:43;;;;589:10;573:43;;;;;;601:7;573:43;;;;610:5;573:43;;;542:74;;627:11;644:10;627:28;;39:1:-1;33:3;27:10;23:18;57:10;52:3;45:23;79:10;72:17;;0:93;627:28:4;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;:::i;:::-;;;;;;;;;;;;;704:10;:20;;;671:92;;;687:10;:15;;;726:10;:18;;;746:10;:16;;;671:92;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;23:1:-1;8:100;33:3;30:1;27:10;8:100;;;99:1;94:3;90:11;84:18;80:1;75:3;71:11;64:39;52:2;49:1;45:10;40:15;;8:100;;;12:14;671:92:4;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;478:293;;;:::o;779:111::-;834:10;864:11;:18;;;;857:25;;779:111;:::o;1183:123::-;1244:10;1274:11;1286:5;1274:18;;;;;;;;;;;;;;;;;;;;:24;;;1267:31;;1183:123;;;:::o;1044:131::-;1107:14;1141:11;1153:5;1141:18;;;;;;;;;;;;;;;;;;;;:26;;1134:33;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;1044:131;;;:::o;188:1123::-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;:::o;:::-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;:::i;:::-;;;:::o;:::-;;;;;;;;;;;;;;;;;;;;;;;;;;;:::o",
+  "source": "pragma solidity ^0.4.24;\r\n\r\n//Contract only for testing purposes.\r\n//Don't connect to other contracts or use in a production environment.\r\n//It registers and store performed validations.\r\ncontract MockValidation {\r\n\r\n    event ValidationEvent(uint time, address indexed validator, string outcome, uint value);\r\n\r\n    struct Validation {\r\n        uint time;\r\n        address validator;\r\n        string outcome;\r\n        uint value;\r\n    }\r\n\r\n    Validation[] validations;\r\n\r\n    function validate(string outcome, uint value) public {\r\n        Validation memory validation = Validation(now, msg.sender, outcome, value);\r\n        validations.push(validation);\r\n        emit ValidationEvent(validation.time, validation.validator, validation.outcome, validation.value);\r\n    }\r\n\r\n    function getValidationsCount() constant public returns(uint count) {\r\n        return validations.length;\r\n    }\r\n\r\n    function getValidatorByIndex(uint index) constant public returns(address validator) {\r\n        return validations[index].validator;\r\n    }\r\n\r\n    function getOutcomeByIndex(uint index) constant public returns(string outcome) {\r\n        return validations[index].outcome;\r\n    }\r\n\r\n    function getValueByIndex(uint index) constant public returns(uint value) {\r\n        return validations[index].value;\r\n    }\r\n\r\n}",
+  "sourcePath": "C:\\Users\\tobog\\Documents\\GitHub\\charity\\contracts\\alice\\MockValidation.sol",
+  "ast": {
+    "absolutePath": "/C/Users/tobog/Documents/GitHub/charity/contracts/alice/MockValidation.sol",
+    "exportedSymbols": {
+      "MockValidation": [
+        379
+      ]
+    },
+    "id": 380,
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 273,
+        "literals": [
+          "solidity",
+          "^",
+          "0.4",
+          ".24"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "0:24:4"
+      },
+      {
+        "baseContracts": [],
+        "contractDependencies": [],
+        "contractKind": "contract",
+        "documentation": null,
+        "fullyImplemented": true,
+        "id": 379,
+        "linearizedBaseContracts": [
+          379
+        ],
+        "name": "MockValidation",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "anonymous": false,
+            "documentation": null,
+            "id": 283,
+            "name": "ValidationEvent",
+            "nodeType": "EventDefinition",
+            "parameters": {
+              "id": 282,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 275,
+                  "indexed": false,
+                  "name": "time",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 283,
+                  "src": "243:9:4",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 274,
+                    "name": "uint",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "243:4:4",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 277,
+                  "indexed": true,
+                  "name": "validator",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 283,
+                  "src": "254:25:4",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 276,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "254:7:4",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 279,
+                  "indexed": false,
+                  "name": "outcome",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 283,
+                  "src": "281:14:4",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_string_memory_ptr",
+                    "typeString": "string"
+                  },
+                  "typeName": {
+                    "id": 278,
+                    "name": "string",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "281:6:4",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_string_storage_ptr",
+                      "typeString": "string"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 281,
+                  "indexed": false,
+                  "name": "value",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 283,
+                  "src": "297:10:4",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 280,
+                    "name": "uint",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "297:4:4",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "242:66:4"
+            },
+            "src": "221:88:4"
+          },
+          {
+            "canonicalName": "MockValidation.Validation",
+            "id": 292,
+            "members": [
+              {
+                "constant": false,
+                "id": 285,
+                "name": "time",
+                "nodeType": "VariableDeclaration",
+                "scope": 292,
+                "src": "346:9:4",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint256",
+                  "typeString": "uint256"
+                },
+                "typeName": {
+                  "id": 284,
+                  "name": "uint",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "346:4:4",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 287,
+                "name": "validator",
+                "nodeType": "VariableDeclaration",
+                "scope": 292,
+                "src": "366:17:4",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_address",
+                  "typeString": "address"
+                },
+                "typeName": {
+                  "id": 286,
+                  "name": "address",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "366:7:4",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 289,
+                "name": "outcome",
+                "nodeType": "VariableDeclaration",
+                "scope": 292,
+                "src": "394:14:4",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_string_storage_ptr",
+                  "typeString": "string"
+                },
+                "typeName": {
+                  "id": 288,
+                  "name": "string",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "394:6:4",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_string_storage_ptr",
+                    "typeString": "string"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 291,
+                "name": "value",
+                "nodeType": "VariableDeclaration",
+                "scope": 292,
+                "src": "419:10:4",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint256",
+                  "typeString": "uint256"
+                },
+                "typeName": {
+                  "id": 290,
+                  "name": "uint",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "419:4:4",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              }
+            ],
+            "name": "Validation",
+            "nodeType": "StructDefinition",
+            "scope": 379,
+            "src": "317:120:4",
+            "visibility": "public"
+          },
+          {
+            "constant": false,
+            "id": 295,
+            "name": "validations",
+            "nodeType": "VariableDeclaration",
+            "scope": 379,
+            "src": "445:24:4",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_array$_t_struct$_Validation_$292_storage_$dyn_storage",
+              "typeString": "struct MockValidation.Validation[]"
+            },
+            "typeName": {
+              "baseType": {
+                "contractScope": null,
+                "id": 293,
+                "name": "Validation",
+                "nodeType": "UserDefinedTypeName",
+                "referencedDeclaration": 292,
+                "src": "445:10:4",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_struct$_Validation_$292_storage_ptr",
+                  "typeString": "struct MockValidation.Validation"
+                }
+              },
+              "id": 294,
+              "length": null,
+              "nodeType": "ArrayTypeName",
+              "src": "445:12:4",
+              "typeDescriptions": {
+                "typeIdentifier": "t_array$_t_struct$_Validation_$292_storage_$dyn_storage_ptr",
+                "typeString": "struct MockValidation.Validation[]"
+              }
+            },
+            "value": null,
+            "visibility": "internal"
+          },
+          {
+            "body": {
+              "id": 329,
+              "nodeType": "Block",
+              "src": "531:240:4",
+              "statements": [
+                {
+                  "assignments": [
+                    303
+                  ],
+                  "declarations": [
+                    {
+                      "constant": false,
+                      "id": 303,
+                      "name": "validation",
+                      "nodeType": "VariableDeclaration",
+                      "scope": 330,
+                      "src": "542:28:4",
+                      "stateVariable": false,
+                      "storageLocation": "memory",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_struct$_Validation_$292_memory_ptr",
+                        "typeString": "struct MockValidation.Validation"
+                      },
+                      "typeName": {
+                        "contractScope": null,
+                        "id": 302,
+                        "name": "Validation",
+                        "nodeType": "UserDefinedTypeName",
+                        "referencedDeclaration": 292,
+                        "src": "542:10:4",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_struct$_Validation_$292_storage_ptr",
+                          "typeString": "struct MockValidation.Validation"
+                        }
+                      },
+                      "value": null,
+                      "visibility": "internal"
+                    }
+                  ],
+                  "id": 311,
+                  "initialValue": {
+                    "argumentTypes": null,
+                    "arguments": [
+                      {
+                        "argumentTypes": null,
+                        "id": 305,
+                        "name": "now",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 2522,
+                        "src": "584:3:4",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        }
+                      },
+                      {
+                        "argumentTypes": null,
+                        "expression": {
+                          "argumentTypes": null,
+                          "id": 306,
+                          "name": "msg",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 2520,
+                          "src": "589:3:4",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_magic_message",
+                            "typeString": "msg"
+                          }
+                        },
+                        "id": 307,
+                        "isConstant": false,
+                        "isLValue": false,
+                        "isPure": false,
+                        "lValueRequested": false,
+                        "memberName": "sender",
+                        "nodeType": "MemberAccess",
+                        "referencedDeclaration": null,
+                        "src": "589:10:4",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_address",
+                          "typeString": "address"
+                        }
+                      },
+                      {
+                        "argumentTypes": null,
+                        "id": 308,
+                        "name": "outcome",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 297,
+                        "src": "601:7:4",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_string_memory_ptr",
+                          "typeString": "string memory"
+                        }
+                      },
+                      {
+                        "argumentTypes": null,
+                        "id": 309,
+                        "name": "value",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 299,
+                        "src": "610:5:4",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        }
+                      }
+                    ],
+                    "expression": {
+                      "argumentTypes": [
+                        {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        },
+                        {
+                          "typeIdentifier": "t_address",
+                          "typeString": "address"
+                        },
+                        {
+                          "typeIdentifier": "t_string_memory_ptr",
+                          "typeString": "string memory"
+                        },
+                        {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        }
+                      ],
+                      "id": 304,
+                      "name": "Validation",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 292,
+                      "src": "573:10:4",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_type$_t_struct$_Validation_$292_storage_ptr_$",
+                        "typeString": "type(struct MockValidation.Validation storage pointer)"
+                      }
+                    },
+                    "id": 310,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "structConstructorCall",
+                    "lValueRequested": false,
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "573:43:4",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_struct$_Validation_$292_memory",
+                      "typeString": "struct MockValidation.Validation memory"
+                    }
+                  },
+                  "nodeType": "VariableDeclarationStatement",
+                  "src": "542:74:4"
+                },
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "arguments": [
+                      {
+                        "argumentTypes": null,
+                        "id": 315,
+                        "name": "validation",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 303,
+                        "src": "644:10:4",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_struct$_Validation_$292_memory_ptr",
+                          "typeString": "struct MockValidation.Validation memory"
+                        }
+                      }
+                    ],
+                    "expression": {
+                      "argumentTypes": [
+                        {
+                          "typeIdentifier": "t_struct$_Validation_$292_memory_ptr",
+                          "typeString": "struct MockValidation.Validation memory"
+                        }
+                      ],
+                      "expression": {
+                        "argumentTypes": null,
+                        "id": 312,
+                        "name": "validations",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 295,
+                        "src": "627:11:4",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_array$_t_struct$_Validation_$292_storage_$dyn_storage",
+                          "typeString": "struct MockValidation.Validation storage ref[] storage ref"
+                        }
+                      },
+                      "id": 314,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": false,
+                      "lValueRequested": false,
+                      "memberName": "push",
+                      "nodeType": "MemberAccess",
+                      "referencedDeclaration": null,
+                      "src": "627:16:4",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_function_arraypush_nonpayable$_t_struct$_Validation_$292_storage_$returns$_t_uint256_$",
+                        "typeString": "function (struct MockValidation.Validation storage ref) returns (uint256)"
+                      }
+                    },
+                    "id": 316,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "functionCall",
+                    "lValueRequested": false,
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "627:28:4",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "id": 317,
+                  "nodeType": "ExpressionStatement",
+                  "src": "627:28:4"
+                },
+                {
+                  "eventCall": {
+                    "argumentTypes": null,
+                    "arguments": [
+                      {
+                        "argumentTypes": null,
+                        "expression": {
+                          "argumentTypes": null,
+                          "id": 319,
+                          "name": "validation",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 303,
+                          "src": "687:10:4",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_struct$_Validation_$292_memory_ptr",
+                            "typeString": "struct MockValidation.Validation memory"
+                          }
+                        },
+                        "id": 320,
+                        "isConstant": false,
+                        "isLValue": true,
+                        "isPure": false,
+                        "lValueRequested": false,
+                        "memberName": "time",
+                        "nodeType": "MemberAccess",
+                        "referencedDeclaration": 285,
+                        "src": "687:15:4",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        }
+                      },
+                      {
+                        "argumentTypes": null,
+                        "expression": {
+                          "argumentTypes": null,
+                          "id": 321,
+                          "name": "validation",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 303,
+                          "src": "704:10:4",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_struct$_Validation_$292_memory_ptr",
+                            "typeString": "struct MockValidation.Validation memory"
+                          }
+                        },
+                        "id": 322,
+                        "isConstant": false,
+                        "isLValue": true,
+                        "isPure": false,
+                        "lValueRequested": false,
+                        "memberName": "validator",
+                        "nodeType": "MemberAccess",
+                        "referencedDeclaration": 287,
+                        "src": "704:20:4",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_address",
+                          "typeString": "address"
+                        }
+                      },
+                      {
+                        "argumentTypes": null,
+                        "expression": {
+                          "argumentTypes": null,
+                          "id": 323,
+                          "name": "validation",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 303,
+                          "src": "726:10:4",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_struct$_Validation_$292_memory_ptr",
+                            "typeString": "struct MockValidation.Validation memory"
+                          }
+                        },
+                        "id": 324,
+                        "isConstant": false,
+                        "isLValue": true,
+                        "isPure": false,
+                        "lValueRequested": false,
+                        "memberName": "outcome",
+                        "nodeType": "MemberAccess",
+                        "referencedDeclaration": 289,
+                        "src": "726:18:4",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_string_memory",
+                          "typeString": "string memory"
+                        }
+                      },
+                      {
+                        "argumentTypes": null,
+                        "expression": {
+                          "argumentTypes": null,
+                          "id": 325,
+                          "name": "validation",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 303,
+                          "src": "746:10:4",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_struct$_Validation_$292_memory_ptr",
+                            "typeString": "struct MockValidation.Validation memory"
+                          }
+                        },
+                        "id": 326,
+                        "isConstant": false,
+                        "isLValue": true,
+                        "isPure": false,
+                        "lValueRequested": false,
+                        "memberName": "value",
+                        "nodeType": "MemberAccess",
+                        "referencedDeclaration": 291,
+                        "src": "746:16:4",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        }
+                      }
+                    ],
+                    "expression": {
+                      "argumentTypes": [
+                        {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        },
+                        {
+                          "typeIdentifier": "t_address",
+                          "typeString": "address"
+                        },
+                        {
+                          "typeIdentifier": "t_string_memory",
+                          "typeString": "string memory"
+                        },
+                        {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        }
+                      ],
+                      "id": 318,
+                      "name": "ValidationEvent",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 283,
+                      "src": "671:15:4",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_function_event_nonpayable$_t_uint256_$_t_address_$_t_string_memory_ptr_$_t_uint256_$returns$__$",
+                        "typeString": "function (uint256,address,string memory,uint256)"
+                      }
+                    },
+                    "id": 327,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "functionCall",
+                    "lValueRequested": false,
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "671:92:4",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_tuple$__$",
+                      "typeString": "tuple()"
+                    }
+                  },
+                  "id": 328,
+                  "nodeType": "EmitStatement",
+                  "src": "666:97:4"
+                }
+              ]
+            },
+            "documentation": null,
+            "id": 330,
+            "implemented": true,
+            "isConstructor": false,
+            "isDeclaredConst": false,
+            "modifiers": [],
+            "name": "validate",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 300,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 297,
+                  "name": "outcome",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 330,
+                  "src": "496:14:4",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_string_memory_ptr",
+                    "typeString": "string"
+                  },
+                  "typeName": {
+                    "id": 296,
+                    "name": "string",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "496:6:4",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_string_storage_ptr",
+                      "typeString": "string"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 299,
+                  "name": "value",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 330,
+                  "src": "512:10:4",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 298,
+                    "name": "uint",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "512:4:4",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "495:28:4"
+            },
+            "payable": false,
+            "returnParameters": {
+              "id": 301,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "531:0:4"
+            },
+            "scope": 379,
+            "src": "478:293:4",
+            "stateMutability": "nonpayable",
+            "superFunction": null,
+            "visibility": "public"
+          },
+          {
+            "body": {
+              "id": 338,
+              "nodeType": "Block",
+              "src": "846:44:4",
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "expression": {
+                      "argumentTypes": null,
+                      "id": 335,
+                      "name": "validations",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 295,
+                      "src": "864:11:4",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_array$_t_struct$_Validation_$292_storage_$dyn_storage",
+                        "typeString": "struct MockValidation.Validation storage ref[] storage ref"
+                      }
+                    },
+                    "id": 336,
+                    "isConstant": false,
+                    "isLValue": true,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "memberName": "length",
+                    "nodeType": "MemberAccess",
+                    "referencedDeclaration": null,
+                    "src": "864:18:4",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "functionReturnParameters": 334,
+                  "id": 337,
+                  "nodeType": "Return",
+                  "src": "857:25:4"
+                }
+              ]
+            },
+            "documentation": null,
+            "id": 339,
+            "implemented": true,
+            "isConstructor": false,
+            "isDeclaredConst": true,
+            "modifiers": [],
+            "name": "getValidationsCount",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 331,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "807:2:4"
+            },
+            "payable": false,
+            "returnParameters": {
+              "id": 334,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 333,
+                  "name": "count",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 339,
+                  "src": "834:10:4",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 332,
+                    "name": "uint",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "834:4:4",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "833:12:4"
+            },
+            "scope": 379,
+            "src": "779:111:4",
+            "stateMutability": "view",
+            "superFunction": null,
+            "visibility": "public"
+          },
+          {
+            "body": {
+              "id": 351,
+              "nodeType": "Block",
+              "src": "982:54:4",
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "expression": {
+                      "argumentTypes": null,
+                      "baseExpression": {
+                        "argumentTypes": null,
+                        "id": 346,
+                        "name": "validations",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 295,
+                        "src": "1000:11:4",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_array$_t_struct$_Validation_$292_storage_$dyn_storage",
+                          "typeString": "struct MockValidation.Validation storage ref[] storage ref"
+                        }
+                      },
+                      "id": 348,
+                      "indexExpression": {
+                        "argumentTypes": null,
+                        "id": 347,
+                        "name": "index",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 341,
+                        "src": "1012:5:4",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        }
+                      },
+                      "isConstant": false,
+                      "isLValue": true,
+                      "isPure": false,
+                      "lValueRequested": false,
+                      "nodeType": "IndexAccess",
+                      "src": "1000:18:4",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_struct$_Validation_$292_storage",
+                        "typeString": "struct MockValidation.Validation storage ref"
+                      }
+                    },
+                    "id": 349,
+                    "isConstant": false,
+                    "isLValue": true,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "memberName": "validator",
+                    "nodeType": "MemberAccess",
+                    "referencedDeclaration": 287,
+                    "src": "1000:28:4",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "functionReturnParameters": 345,
+                  "id": 350,
+                  "nodeType": "Return",
+                  "src": "993:35:4"
+                }
+              ]
+            },
+            "documentation": null,
+            "id": 352,
+            "implemented": true,
+            "isConstructor": false,
+            "isDeclaredConst": true,
+            "modifiers": [],
+            "name": "getValidatorByIndex",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 342,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 341,
+                  "name": "index",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 352,
+                  "src": "927:10:4",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 340,
+                    "name": "uint",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "927:4:4",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "926:12:4"
+            },
+            "payable": false,
+            "returnParameters": {
+              "id": 345,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 344,
+                  "name": "validator",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 352,
+                  "src": "963:17:4",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 343,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "963:7:4",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "962:19:4"
+            },
+            "scope": 379,
+            "src": "898:138:4",
+            "stateMutability": "view",
+            "superFunction": null,
+            "visibility": "public"
+          },
+          {
+            "body": {
+              "id": 364,
+              "nodeType": "Block",
+              "src": "1123:52:4",
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "expression": {
+                      "argumentTypes": null,
+                      "baseExpression": {
+                        "argumentTypes": null,
+                        "id": 359,
+                        "name": "validations",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 295,
+                        "src": "1141:11:4",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_array$_t_struct$_Validation_$292_storage_$dyn_storage",
+                          "typeString": "struct MockValidation.Validation storage ref[] storage ref"
+                        }
+                      },
+                      "id": 361,
+                      "indexExpression": {
+                        "argumentTypes": null,
+                        "id": 360,
+                        "name": "index",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 354,
+                        "src": "1153:5:4",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        }
+                      },
+                      "isConstant": false,
+                      "isLValue": true,
+                      "isPure": false,
+                      "lValueRequested": false,
+                      "nodeType": "IndexAccess",
+                      "src": "1141:18:4",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_struct$_Validation_$292_storage",
+                        "typeString": "struct MockValidation.Validation storage ref"
+                      }
+                    },
+                    "id": 362,
+                    "isConstant": false,
+                    "isLValue": true,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "memberName": "outcome",
+                    "nodeType": "MemberAccess",
+                    "referencedDeclaration": 289,
+                    "src": "1141:26:4",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_string_storage",
+                      "typeString": "string storage ref"
+                    }
+                  },
+                  "functionReturnParameters": 358,
+                  "id": 363,
+                  "nodeType": "Return",
+                  "src": "1134:33:4"
+                }
+              ]
+            },
+            "documentation": null,
+            "id": 365,
+            "implemented": true,
+            "isConstructor": false,
+            "isDeclaredConst": true,
+            "modifiers": [],
+            "name": "getOutcomeByIndex",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 355,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 354,
+                  "name": "index",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 365,
+                  "src": "1071:10:4",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 353,
+                    "name": "uint",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1071:4:4",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1070:12:4"
+            },
+            "payable": false,
+            "returnParameters": {
+              "id": 358,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 357,
+                  "name": "outcome",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 365,
+                  "src": "1107:14:4",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_string_memory_ptr",
+                    "typeString": "string"
+                  },
+                  "typeName": {
+                    "id": 356,
+                    "name": "string",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1107:6:4",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_string_storage_ptr",
+                      "typeString": "string"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1106:16:4"
+            },
+            "scope": 379,
+            "src": "1044:131:4",
+            "stateMutability": "view",
+            "superFunction": null,
+            "visibility": "public"
+          },
+          {
+            "body": {
+              "id": 377,
+              "nodeType": "Block",
+              "src": "1256:50:4",
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "expression": {
+                      "argumentTypes": null,
+                      "baseExpression": {
+                        "argumentTypes": null,
+                        "id": 372,
+                        "name": "validations",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 295,
+                        "src": "1274:11:4",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_array$_t_struct$_Validation_$292_storage_$dyn_storage",
+                          "typeString": "struct MockValidation.Validation storage ref[] storage ref"
+                        }
+                      },
+                      "id": 374,
+                      "indexExpression": {
+                        "argumentTypes": null,
+                        "id": 373,
+                        "name": "index",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 367,
+                        "src": "1286:5:4",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        }
+                      },
+                      "isConstant": false,
+                      "isLValue": true,
+                      "isPure": false,
+                      "lValueRequested": false,
+                      "nodeType": "IndexAccess",
+                      "src": "1274:18:4",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_struct$_Validation_$292_storage",
+                        "typeString": "struct MockValidation.Validation storage ref"
+                      }
+                    },
+                    "id": 375,
+                    "isConstant": false,
+                    "isLValue": true,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "memberName": "value",
+                    "nodeType": "MemberAccess",
+                    "referencedDeclaration": 291,
+                    "src": "1274:24:4",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "functionReturnParameters": 371,
+                  "id": 376,
+                  "nodeType": "Return",
+                  "src": "1267:31:4"
+                }
+              ]
+            },
+            "documentation": null,
+            "id": 378,
+            "implemented": true,
+            "isConstructor": false,
+            "isDeclaredConst": true,
+            "modifiers": [],
+            "name": "getValueByIndex",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 368,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 367,
+                  "name": "index",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 378,
+                  "src": "1208:10:4",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 366,
+                    "name": "uint",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1208:4:4",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1207:12:4"
+            },
+            "payable": false,
+            "returnParameters": {
+              "id": 371,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 370,
+                  "name": "value",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 378,
+                  "src": "1244:10:4",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 369,
+                    "name": "uint",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1244:4:4",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1243:12:4"
+            },
+            "scope": 379,
+            "src": "1183:123:4",
+            "stateMutability": "view",
+            "superFunction": null,
+            "visibility": "public"
+          }
+        ],
+        "scope": 380,
+        "src": "188:1123:4"
+      }
+    ],
+    "src": "0:1311:4"
+  },
+  "legacyAST": {
+    "absolutePath": "/C/Users/tobog/Documents/GitHub/charity/contracts/alice/MockValidation.sol",
+    "exportedSymbols": {
+      "MockValidation": [
+        379
+      ]
+    },
+    "id": 380,
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 273,
+        "literals": [
+          "solidity",
+          "^",
+          "0.4",
+          ".24"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "0:24:4"
+      },
+      {
+        "baseContracts": [],
+        "contractDependencies": [],
+        "contractKind": "contract",
+        "documentation": null,
+        "fullyImplemented": true,
+        "id": 379,
+        "linearizedBaseContracts": [
+          379
+        ],
+        "name": "MockValidation",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "anonymous": false,
+            "documentation": null,
+            "id": 283,
+            "name": "ValidationEvent",
+            "nodeType": "EventDefinition",
+            "parameters": {
+              "id": 282,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 275,
+                  "indexed": false,
+                  "name": "time",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 283,
+                  "src": "243:9:4",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 274,
+                    "name": "uint",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "243:4:4",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 277,
+                  "indexed": true,
+                  "name": "validator",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 283,
+                  "src": "254:25:4",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 276,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "254:7:4",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 279,
+                  "indexed": false,
+                  "name": "outcome",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 283,
+                  "src": "281:14:4",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_string_memory_ptr",
+                    "typeString": "string"
+                  },
+                  "typeName": {
+                    "id": 278,
+                    "name": "string",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "281:6:4",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_string_storage_ptr",
+                      "typeString": "string"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 281,
+                  "indexed": false,
+                  "name": "value",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 283,
+                  "src": "297:10:4",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 280,
+                    "name": "uint",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "297:4:4",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "242:66:4"
+            },
+            "src": "221:88:4"
+          },
+          {
+            "canonicalName": "MockValidation.Validation",
+            "id": 292,
+            "members": [
+              {
+                "constant": false,
+                "id": 285,
+                "name": "time",
+                "nodeType": "VariableDeclaration",
+                "scope": 292,
+                "src": "346:9:4",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint256",
+                  "typeString": "uint256"
+                },
+                "typeName": {
+                  "id": 284,
+                  "name": "uint",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "346:4:4",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 287,
+                "name": "validator",
+                "nodeType": "VariableDeclaration",
+                "scope": 292,
+                "src": "366:17:4",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_address",
+                  "typeString": "address"
+                },
+                "typeName": {
+                  "id": 286,
+                  "name": "address",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "366:7:4",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 289,
+                "name": "outcome",
+                "nodeType": "VariableDeclaration",
+                "scope": 292,
+                "src": "394:14:4",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_string_storage_ptr",
+                  "typeString": "string"
+                },
+                "typeName": {
+                  "id": 288,
+                  "name": "string",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "394:6:4",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_string_storage_ptr",
+                    "typeString": "string"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 291,
+                "name": "value",
+                "nodeType": "VariableDeclaration",
+                "scope": 292,
+                "src": "419:10:4",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint256",
+                  "typeString": "uint256"
+                },
+                "typeName": {
+                  "id": 290,
+                  "name": "uint",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "419:4:4",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              }
+            ],
+            "name": "Validation",
+            "nodeType": "StructDefinition",
+            "scope": 379,
+            "src": "317:120:4",
+            "visibility": "public"
+          },
+          {
+            "constant": false,
+            "id": 295,
+            "name": "validations",
+            "nodeType": "VariableDeclaration",
+            "scope": 379,
+            "src": "445:24:4",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_array$_t_struct$_Validation_$292_storage_$dyn_storage",
+              "typeString": "struct MockValidation.Validation[]"
+            },
+            "typeName": {
+              "baseType": {
+                "contractScope": null,
+                "id": 293,
+                "name": "Validation",
+                "nodeType": "UserDefinedTypeName",
+                "referencedDeclaration": 292,
+                "src": "445:10:4",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_struct$_Validation_$292_storage_ptr",
+                  "typeString": "struct MockValidation.Validation"
+                }
+              },
+              "id": 294,
+              "length": null,
+              "nodeType": "ArrayTypeName",
+              "src": "445:12:4",
+              "typeDescriptions": {
+                "typeIdentifier": "t_array$_t_struct$_Validation_$292_storage_$dyn_storage_ptr",
+                "typeString": "struct MockValidation.Validation[]"
+              }
+            },
+            "value": null,
+            "visibility": "internal"
+          },
+          {
+            "body": {
+              "id": 329,
+              "nodeType": "Block",
+              "src": "531:240:4",
+              "statements": [
+                {
+                  "assignments": [
+                    303
+                  ],
+                  "declarations": [
+                    {
+                      "constant": false,
+                      "id": 303,
+                      "name": "validation",
+                      "nodeType": "VariableDeclaration",
+                      "scope": 330,
+                      "src": "542:28:4",
+                      "stateVariable": false,
+                      "storageLocation": "memory",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_struct$_Validation_$292_memory_ptr",
+                        "typeString": "struct MockValidation.Validation"
+                      },
+                      "typeName": {
+                        "contractScope": null,
+                        "id": 302,
+                        "name": "Validation",
+                        "nodeType": "UserDefinedTypeName",
+                        "referencedDeclaration": 292,
+                        "src": "542:10:4",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_struct$_Validation_$292_storage_ptr",
+                          "typeString": "struct MockValidation.Validation"
+                        }
+                      },
+                      "value": null,
+                      "visibility": "internal"
+                    }
+                  ],
+                  "id": 311,
+                  "initialValue": {
+                    "argumentTypes": null,
+                    "arguments": [
+                      {
+                        "argumentTypes": null,
+                        "id": 305,
+                        "name": "now",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 2522,
+                        "src": "584:3:4",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        }
+                      },
+                      {
+                        "argumentTypes": null,
+                        "expression": {
+                          "argumentTypes": null,
+                          "id": 306,
+                          "name": "msg",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 2520,
+                          "src": "589:3:4",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_magic_message",
+                            "typeString": "msg"
+                          }
+                        },
+                        "id": 307,
+                        "isConstant": false,
+                        "isLValue": false,
+                        "isPure": false,
+                        "lValueRequested": false,
+                        "memberName": "sender",
+                        "nodeType": "MemberAccess",
+                        "referencedDeclaration": null,
+                        "src": "589:10:4",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_address",
+                          "typeString": "address"
+                        }
+                      },
+                      {
+                        "argumentTypes": null,
+                        "id": 308,
+                        "name": "outcome",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 297,
+                        "src": "601:7:4",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_string_memory_ptr",
+                          "typeString": "string memory"
+                        }
+                      },
+                      {
+                        "argumentTypes": null,
+                        "id": 309,
+                        "name": "value",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 299,
+                        "src": "610:5:4",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        }
+                      }
+                    ],
+                    "expression": {
+                      "argumentTypes": [
+                        {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        },
+                        {
+                          "typeIdentifier": "t_address",
+                          "typeString": "address"
+                        },
+                        {
+                          "typeIdentifier": "t_string_memory_ptr",
+                          "typeString": "string memory"
+                        },
+                        {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        }
+                      ],
+                      "id": 304,
+                      "name": "Validation",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 292,
+                      "src": "573:10:4",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_type$_t_struct$_Validation_$292_storage_ptr_$",
+                        "typeString": "type(struct MockValidation.Validation storage pointer)"
+                      }
+                    },
+                    "id": 310,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "structConstructorCall",
+                    "lValueRequested": false,
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "573:43:4",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_struct$_Validation_$292_memory",
+                      "typeString": "struct MockValidation.Validation memory"
+                    }
+                  },
+                  "nodeType": "VariableDeclarationStatement",
+                  "src": "542:74:4"
+                },
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "arguments": [
+                      {
+                        "argumentTypes": null,
+                        "id": 315,
+                        "name": "validation",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 303,
+                        "src": "644:10:4",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_struct$_Validation_$292_memory_ptr",
+                          "typeString": "struct MockValidation.Validation memory"
+                        }
+                      }
+                    ],
+                    "expression": {
+                      "argumentTypes": [
+                        {
+                          "typeIdentifier": "t_struct$_Validation_$292_memory_ptr",
+                          "typeString": "struct MockValidation.Validation memory"
+                        }
+                      ],
+                      "expression": {
+                        "argumentTypes": null,
+                        "id": 312,
+                        "name": "validations",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 295,
+                        "src": "627:11:4",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_array$_t_struct$_Validation_$292_storage_$dyn_storage",
+                          "typeString": "struct MockValidation.Validation storage ref[] storage ref"
+                        }
+                      },
+                      "id": 314,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": false,
+                      "lValueRequested": false,
+                      "memberName": "push",
+                      "nodeType": "MemberAccess",
+                      "referencedDeclaration": null,
+                      "src": "627:16:4",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_function_arraypush_nonpayable$_t_struct$_Validation_$292_storage_$returns$_t_uint256_$",
+                        "typeString": "function (struct MockValidation.Validation storage ref) returns (uint256)"
+                      }
+                    },
+                    "id": 316,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "functionCall",
+                    "lValueRequested": false,
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "627:28:4",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "id": 317,
+                  "nodeType": "ExpressionStatement",
+                  "src": "627:28:4"
+                },
+                {
+                  "eventCall": {
+                    "argumentTypes": null,
+                    "arguments": [
+                      {
+                        "argumentTypes": null,
+                        "expression": {
+                          "argumentTypes": null,
+                          "id": 319,
+                          "name": "validation",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 303,
+                          "src": "687:10:4",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_struct$_Validation_$292_memory_ptr",
+                            "typeString": "struct MockValidation.Validation memory"
+                          }
+                        },
+                        "id": 320,
+                        "isConstant": false,
+                        "isLValue": true,
+                        "isPure": false,
+                        "lValueRequested": false,
+                        "memberName": "time",
+                        "nodeType": "MemberAccess",
+                        "referencedDeclaration": 285,
+                        "src": "687:15:4",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        }
+                      },
+                      {
+                        "argumentTypes": null,
+                        "expression": {
+                          "argumentTypes": null,
+                          "id": 321,
+                          "name": "validation",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 303,
+                          "src": "704:10:4",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_struct$_Validation_$292_memory_ptr",
+                            "typeString": "struct MockValidation.Validation memory"
+                          }
+                        },
+                        "id": 322,
+                        "isConstant": false,
+                        "isLValue": true,
+                        "isPure": false,
+                        "lValueRequested": false,
+                        "memberName": "validator",
+                        "nodeType": "MemberAccess",
+                        "referencedDeclaration": 287,
+                        "src": "704:20:4",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_address",
+                          "typeString": "address"
+                        }
+                      },
+                      {
+                        "argumentTypes": null,
+                        "expression": {
+                          "argumentTypes": null,
+                          "id": 323,
+                          "name": "validation",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 303,
+                          "src": "726:10:4",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_struct$_Validation_$292_memory_ptr",
+                            "typeString": "struct MockValidation.Validation memory"
+                          }
+                        },
+                        "id": 324,
+                        "isConstant": false,
+                        "isLValue": true,
+                        "isPure": false,
+                        "lValueRequested": false,
+                        "memberName": "outcome",
+                        "nodeType": "MemberAccess",
+                        "referencedDeclaration": 289,
+                        "src": "726:18:4",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_string_memory",
+                          "typeString": "string memory"
+                        }
+                      },
+                      {
+                        "argumentTypes": null,
+                        "expression": {
+                          "argumentTypes": null,
+                          "id": 325,
+                          "name": "validation",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 303,
+                          "src": "746:10:4",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_struct$_Validation_$292_memory_ptr",
+                            "typeString": "struct MockValidation.Validation memory"
+                          }
+                        },
+                        "id": 326,
+                        "isConstant": false,
+                        "isLValue": true,
+                        "isPure": false,
+                        "lValueRequested": false,
+                        "memberName": "value",
+                        "nodeType": "MemberAccess",
+                        "referencedDeclaration": 291,
+                        "src": "746:16:4",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        }
+                      }
+                    ],
+                    "expression": {
+                      "argumentTypes": [
+                        {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        },
+                        {
+                          "typeIdentifier": "t_address",
+                          "typeString": "address"
+                        },
+                        {
+                          "typeIdentifier": "t_string_memory",
+                          "typeString": "string memory"
+                        },
+                        {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        }
+                      ],
+                      "id": 318,
+                      "name": "ValidationEvent",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 283,
+                      "src": "671:15:4",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_function_event_nonpayable$_t_uint256_$_t_address_$_t_string_memory_ptr_$_t_uint256_$returns$__$",
+                        "typeString": "function (uint256,address,string memory,uint256)"
+                      }
+                    },
+                    "id": 327,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "functionCall",
+                    "lValueRequested": false,
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "671:92:4",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_tuple$__$",
+                      "typeString": "tuple()"
+                    }
+                  },
+                  "id": 328,
+                  "nodeType": "EmitStatement",
+                  "src": "666:97:4"
+                }
+              ]
+            },
+            "documentation": null,
+            "id": 330,
+            "implemented": true,
+            "isConstructor": false,
+            "isDeclaredConst": false,
+            "modifiers": [],
+            "name": "validate",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 300,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 297,
+                  "name": "outcome",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 330,
+                  "src": "496:14:4",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_string_memory_ptr",
+                    "typeString": "string"
+                  },
+                  "typeName": {
+                    "id": 296,
+                    "name": "string",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "496:6:4",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_string_storage_ptr",
+                      "typeString": "string"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 299,
+                  "name": "value",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 330,
+                  "src": "512:10:4",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 298,
+                    "name": "uint",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "512:4:4",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "495:28:4"
+            },
+            "payable": false,
+            "returnParameters": {
+              "id": 301,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "531:0:4"
+            },
+            "scope": 379,
+            "src": "478:293:4",
+            "stateMutability": "nonpayable",
+            "superFunction": null,
+            "visibility": "public"
+          },
+          {
+            "body": {
+              "id": 338,
+              "nodeType": "Block",
+              "src": "846:44:4",
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "expression": {
+                      "argumentTypes": null,
+                      "id": 335,
+                      "name": "validations",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 295,
+                      "src": "864:11:4",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_array$_t_struct$_Validation_$292_storage_$dyn_storage",
+                        "typeString": "struct MockValidation.Validation storage ref[] storage ref"
+                      }
+                    },
+                    "id": 336,
+                    "isConstant": false,
+                    "isLValue": true,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "memberName": "length",
+                    "nodeType": "MemberAccess",
+                    "referencedDeclaration": null,
+                    "src": "864:18:4",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "functionReturnParameters": 334,
+                  "id": 337,
+                  "nodeType": "Return",
+                  "src": "857:25:4"
+                }
+              ]
+            },
+            "documentation": null,
+            "id": 339,
+            "implemented": true,
+            "isConstructor": false,
+            "isDeclaredConst": true,
+            "modifiers": [],
+            "name": "getValidationsCount",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 331,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "807:2:4"
+            },
+            "payable": false,
+            "returnParameters": {
+              "id": 334,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 333,
+                  "name": "count",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 339,
+                  "src": "834:10:4",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 332,
+                    "name": "uint",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "834:4:4",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "833:12:4"
+            },
+            "scope": 379,
+            "src": "779:111:4",
+            "stateMutability": "view",
+            "superFunction": null,
+            "visibility": "public"
+          },
+          {
+            "body": {
+              "id": 351,
+              "nodeType": "Block",
+              "src": "982:54:4",
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "expression": {
+                      "argumentTypes": null,
+                      "baseExpression": {
+                        "argumentTypes": null,
+                        "id": 346,
+                        "name": "validations",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 295,
+                        "src": "1000:11:4",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_array$_t_struct$_Validation_$292_storage_$dyn_storage",
+                          "typeString": "struct MockValidation.Validation storage ref[] storage ref"
+                        }
+                      },
+                      "id": 348,
+                      "indexExpression": {
+                        "argumentTypes": null,
+                        "id": 347,
+                        "name": "index",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 341,
+                        "src": "1012:5:4",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        }
+                      },
+                      "isConstant": false,
+                      "isLValue": true,
+                      "isPure": false,
+                      "lValueRequested": false,
+                      "nodeType": "IndexAccess",
+                      "src": "1000:18:4",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_struct$_Validation_$292_storage",
+                        "typeString": "struct MockValidation.Validation storage ref"
+                      }
+                    },
+                    "id": 349,
+                    "isConstant": false,
+                    "isLValue": true,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "memberName": "validator",
+                    "nodeType": "MemberAccess",
+                    "referencedDeclaration": 287,
+                    "src": "1000:28:4",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "functionReturnParameters": 345,
+                  "id": 350,
+                  "nodeType": "Return",
+                  "src": "993:35:4"
+                }
+              ]
+            },
+            "documentation": null,
+            "id": 352,
+            "implemented": true,
+            "isConstructor": false,
+            "isDeclaredConst": true,
+            "modifiers": [],
+            "name": "getValidatorByIndex",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 342,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 341,
+                  "name": "index",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 352,
+                  "src": "927:10:4",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 340,
+                    "name": "uint",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "927:4:4",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "926:12:4"
+            },
+            "payable": false,
+            "returnParameters": {
+              "id": 345,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 344,
+                  "name": "validator",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 352,
+                  "src": "963:17:4",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 343,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "963:7:4",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "962:19:4"
+            },
+            "scope": 379,
+            "src": "898:138:4",
+            "stateMutability": "view",
+            "superFunction": null,
+            "visibility": "public"
+          },
+          {
+            "body": {
+              "id": 364,
+              "nodeType": "Block",
+              "src": "1123:52:4",
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "expression": {
+                      "argumentTypes": null,
+                      "baseExpression": {
+                        "argumentTypes": null,
+                        "id": 359,
+                        "name": "validations",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 295,
+                        "src": "1141:11:4",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_array$_t_struct$_Validation_$292_storage_$dyn_storage",
+                          "typeString": "struct MockValidation.Validation storage ref[] storage ref"
+                        }
+                      },
+                      "id": 361,
+                      "indexExpression": {
+                        "argumentTypes": null,
+                        "id": 360,
+                        "name": "index",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 354,
+                        "src": "1153:5:4",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        }
+                      },
+                      "isConstant": false,
+                      "isLValue": true,
+                      "isPure": false,
+                      "lValueRequested": false,
+                      "nodeType": "IndexAccess",
+                      "src": "1141:18:4",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_struct$_Validation_$292_storage",
+                        "typeString": "struct MockValidation.Validation storage ref"
+                      }
+                    },
+                    "id": 362,
+                    "isConstant": false,
+                    "isLValue": true,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "memberName": "outcome",
+                    "nodeType": "MemberAccess",
+                    "referencedDeclaration": 289,
+                    "src": "1141:26:4",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_string_storage",
+                      "typeString": "string storage ref"
+                    }
+                  },
+                  "functionReturnParameters": 358,
+                  "id": 363,
+                  "nodeType": "Return",
+                  "src": "1134:33:4"
+                }
+              ]
+            },
+            "documentation": null,
+            "id": 365,
+            "implemented": true,
+            "isConstructor": false,
+            "isDeclaredConst": true,
+            "modifiers": [],
+            "name": "getOutcomeByIndex",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 355,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 354,
+                  "name": "index",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 365,
+                  "src": "1071:10:4",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 353,
+                    "name": "uint",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1071:4:4",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1070:12:4"
+            },
+            "payable": false,
+            "returnParameters": {
+              "id": 358,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 357,
+                  "name": "outcome",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 365,
+                  "src": "1107:14:4",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_string_memory_ptr",
+                    "typeString": "string"
+                  },
+                  "typeName": {
+                    "id": 356,
+                    "name": "string",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1107:6:4",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_string_storage_ptr",
+                      "typeString": "string"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1106:16:4"
+            },
+            "scope": 379,
+            "src": "1044:131:4",
+            "stateMutability": "view",
+            "superFunction": null,
+            "visibility": "public"
+          },
+          {
+            "body": {
+              "id": 377,
+              "nodeType": "Block",
+              "src": "1256:50:4",
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "expression": {
+                      "argumentTypes": null,
+                      "baseExpression": {
+                        "argumentTypes": null,
+                        "id": 372,
+                        "name": "validations",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 295,
+                        "src": "1274:11:4",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_array$_t_struct$_Validation_$292_storage_$dyn_storage",
+                          "typeString": "struct MockValidation.Validation storage ref[] storage ref"
+                        }
+                      },
+                      "id": 374,
+                      "indexExpression": {
+                        "argumentTypes": null,
+                        "id": 373,
+                        "name": "index",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 367,
+                        "src": "1286:5:4",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        }
+                      },
+                      "isConstant": false,
+                      "isLValue": true,
+                      "isPure": false,
+                      "lValueRequested": false,
+                      "nodeType": "IndexAccess",
+                      "src": "1274:18:4",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_struct$_Validation_$292_storage",
+                        "typeString": "struct MockValidation.Validation storage ref"
+                      }
+                    },
+                    "id": 375,
+                    "isConstant": false,
+                    "isLValue": true,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "memberName": "value",
+                    "nodeType": "MemberAccess",
+                    "referencedDeclaration": 291,
+                    "src": "1274:24:4",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "functionReturnParameters": 371,
+                  "id": 376,
+                  "nodeType": "Return",
+                  "src": "1267:31:4"
+                }
+              ]
+            },
+            "documentation": null,
+            "id": 378,
+            "implemented": true,
+            "isConstructor": false,
+            "isDeclaredConst": true,
+            "modifiers": [],
+            "name": "getValueByIndex",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 368,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 367,
+                  "name": "index",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 378,
+                  "src": "1208:10:4",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 366,
+                    "name": "uint",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1208:4:4",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1207:12:4"
+            },
+            "payable": false,
+            "returnParameters": {
+              "id": 371,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 370,
+                  "name": "value",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 378,
+                  "src": "1244:10:4",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 369,
+                    "name": "uint",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1244:4:4",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1243:12:4"
+            },
+            "scope": 379,
+            "src": "1183:123:4",
+            "stateMutability": "view",
+            "superFunction": null,
+            "visibility": "public"
+          }
+        ],
+        "scope": 380,
+        "src": "188:1123:4"
+      }
+    ],
+    "src": "0:1311:4"
+  },
+  "compiler": {
+    "name": "solc",
+    "version": "0.4.26+commit.4563c3fc.Emscripten.clang"
+  },
+  "networks": {
+    "5777": {
+      "events": {
+        "0x9ab76df04fa8bcd90e76e368031d77fc34a93a7d86fcf2b098aa02850ad7c663": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": false,
+              "name": "time",
+              "type": "uint256"
+            },
+            {
+              "indexed": true,
+              "name": "validator",
+              "type": "address"
+            },
+            {
+              "indexed": false,
+              "name": "outcome",
+              "type": "string"
+            },
+            {
+              "indexed": false,
+              "name": "value",
+              "type": "uint256"
+            }
+          ],
+          "name": "ValidationEvent",
+          "type": "event"
+        }
+      },
+      "links": {},
+      "address": "0xB178Ed12B908B234e88BFAd4B345cB79fa96d0Ed",
+      "transactionHash": "0xa6f3fdbd2a02d6d482f5d1430c93754a994c9661dab33b8c90da5384f29aff6e"
+    }
+  },
+  "schemaVersion": "3.0.23",
+  "updatedAt": "2020-04-20T14:10:55.198Z",
+  "networkType": "ethereum",
+  "devdoc": {
+    "methods": {}
+  },
+  "userdoc": {
+    "methods": {}
+  }
+}

@@ -3,7 +3,8 @@ pragma solidity ^0.4.24;
 import 'openzeppelin-solidity/contracts/ownership/Ownable.sol';
 import 'openzeppelin-solidity/contracts/math/SafeMath.sol';
 import 'openzeppelin-solidity/contracts/token/ERC20/ERC20.sol';
-import '../Project.sol';
+
+import './Project.sol';
 
 
 contract ProjectWithBonds is Project {

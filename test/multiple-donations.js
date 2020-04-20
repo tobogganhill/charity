@@ -1,14 +1,14 @@
-var Project = artifacts.require('Project');
-var AliceToken = artifacts.require('AliceToken');
-var ImpactRegistry = artifacts.require('ImpactRegistry');
+let Project = artifacts.require('Project');
+let AliceToken = artifacts.require('AliceToken');
+let ImpactRegistry = artifacts.require('ImpactRegistry');
 
-require('../test-setup');
+require('./test-setup');
 
 contract('Multiple donations', function(accounts) {
-	var main = accounts[0];
-	var validator = accounts[1];
-	var beneficiary = accounts[2];
-	var project, token;
+	let main = accounts[0];
+	let validator = accounts[1];
+	let beneficiary = accounts[2];
+	let project, token;
 
 	it('should create a project', async function() {
 		project = await Project.new('Project', 0);

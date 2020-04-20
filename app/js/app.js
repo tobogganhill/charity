@@ -90,7 +90,7 @@ function blink(el) {
 		// disable trigger for current element to avoid double blinking
 		el.off('DOMSubtreeModified');
 		let startFontSize = el.css('font-size');
-		let increasedFontSize = parseInt(startFontSize) * 1.4 + 'px';
+		let increasedFontSize = parseInt(startFontSize) * 1.5 + 'px';
 		el.animate(
 			{
 				'font-size': increasedFontSize,
@@ -214,7 +214,7 @@ function printTx(name, tx) {
 }
 function printContract(name, contract) {
 	printLog(
-		'<span style="color:maroon; font-weight: bold;">' +
+		'<span style="color:brown; font-weight: bold;">' +
 			name +
 			'</span> Contract deployed to: ' +
 			contract.address

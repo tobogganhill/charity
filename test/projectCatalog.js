@@ -1,25 +1,28 @@
-var ProjectCatalog = artifacts.require("ProjectCatalog");
-var Project = artifacts.require("Project");
+let ProjectCatalog = artifacts.require('ProjectCatalog');
+let Project = artifacts.require('Project');
 
-require("./test-setup");
+require('./test-setup');
 
 contract('ProjectCatalog', function(accounts) {
-	var owner = accounts[0];
-	var project;
-	var projectCatalog;
+	let project;
+	let projectCatalog;
 
-	before("deploy Privileged contract", async function() {
+	before('deploy Privileged contract', async function() {
 		projectCatalog = await ProjectCatalog.new();
 	});
 
-	it("should add a project to catalog", async function() {
+	it('should add a project to catalog', async function() {
 		project = await Project.deployed();
-		await projectCatalog.addProject("PROJECT", project.address);
+		await projectCatalog.addProject('PROJECT', project.address);
 
-		(await projectCatalog.getProjectAddress("PROJECT")).should.be.equal(project.address);
+		(await projectCatalog.getProjectAddress('PROJECT')).should.be.equal(
+			project.address
+		);
 	});
 
-	it("should prevent adding the same project again", async function() {
-		await projectCatalog.addProject("PROJECT", project.address).shouldBeReverted();
+	it('should prevent adding the same project again', async function() {
+		await projectCatalog
+			.addProject('PROJECT', project.address)
+			.shouldBeReverted();
 	});
 });

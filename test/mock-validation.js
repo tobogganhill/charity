@@ -1,7 +1,7 @@
-var MockValidation = artifacts.require('MockValidation');
+let MockValidation = artifacts.require('MockValidation');
 
 contract('Mock Validation', function(accounts) {
-	var mockValidation;
+	let mockValidation;
 
 	it('should validate correctly', function(done) {
 		MockValidation.deployed()
