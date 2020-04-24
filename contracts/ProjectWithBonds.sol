@@ -38,11 +38,8 @@ contract ProjectWithBonds is Project {
 		} else {
 			validatedLiability = validatedLiability.add(_value);
 		}
-
 		total = total.sub(_value);
-
 		ImpactRegistry(IMPACT_REGISTRY_ADDRESS).registerOutcome(_claimId, _value);
-
 		emit OutcomeEvent(_claimId, _value);
 	}
 

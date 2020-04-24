@@ -3,7 +3,7 @@ import '../css/app.css';
 // import libraries
 import { default as Web3 } from 'web3';
 import { default as contract } from 'truffle-contract';
-// import contract artifacts and turn them into usable abstractions
+// import contract artifacts
 import token_artifacts from '../../build/contracts/Token.json';
 import wallet_artifacts from '../../build/contracts/DonationWallet.json';
 import bonds_artifacts from '../../build/contracts/ProjectWithBonds.json';
@@ -11,7 +11,6 @@ import catalog_artifacts from '../../build/contracts/ProjectCatalog.json';
 import impact_registry_artifacts from '../../build/contracts/ImpactRegistry.json';
 import linker_artifacts from '../../build/contracts/FlexibleImpactLinker.json';
 import investor_artifacts from '../../build/contracts/InvestmentWallet.json';
-
 // Contracts
 let Token = contract(token_artifacts);
 let Wallet = contract(wallet_artifacts);
@@ -84,7 +83,7 @@ function setTriggers() {
 	});
 }
 function blink(el) {
-	let timeout = 30;
+	let timeout = 20;
 	// wait until all events on the element finish
 	el.promise().done(function() {
 		// disable trigger for current element to avoid double blinking
@@ -306,7 +305,7 @@ window.onload = function() {
 		}
 		if (accs.length == 0) {
 			alert(
-				'Could not fetch accounts. Ensure Ganache is configured correctly.'
+				'Could not fetch accounts. Make sure Ganache is configured correctly.'
 			);
 			return;
 		}

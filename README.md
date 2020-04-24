@@ -30,7 +30,7 @@ Connection to blockchain node is defined in truffle.js:
           network_id: "*",
           gas: 4000000,
           host: 'localhost',
-          port: '8545'
+          port: '7545'
         }
     }
 
@@ -44,18 +44,9 @@ To run smart contract tests, use the following truffle command in the console:
 
     truffle test
 
-If you are using the testrpc client, remember to start it with a sufficient
-number of test accounts:
-
-    ganache-cli -a 100
-
-You can also use an automated test script instead of the previous two commands:
-
-    yarn test
-
 ### Demo DAPP
 
-Deploy the smart contracts to your blockchain network:
+Deploy the smart contracts to the blockchain:
 
     truffle migrate
 

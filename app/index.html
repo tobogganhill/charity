@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<title>Charity Crowdfunding</title>
+		<title>Charitable Crowdfunding</title>
 		<link rel="manifest" href="/site.webmanifest" />
 		<link
 			href="https://fonts.googleapis.com/icon?family=Material+Icons"
@@ -30,29 +30,13 @@
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
 		<script src="./app.js"></script>
-		<style>
-			.btn-default {
-				background-color: gray;
-				color: white;
-				border-color: #2f3e48;
-			}
-			.btn-default:hover,
-			.btn-default:focus,
-			.btn-default:active,
-			.btn-default.active,
-			.open .dropdown-toggle.btn-default {
-				background-color: silver;
-				color: black;
-				border-color: #31347b;
-			}
-		</style>
 	</head>
 	<body>
 		<div class="row">
 			<div class="col-lg-3 col-xs-6">
 				<div
 					class="small-box bg-orange"
-					style="box-shadow: 5px 5px 5px -4px black;"
+					style="box-shadow: 5px 5px 5px -2px black;"
 				>
 					<div class="inner" style="height: 110px; border: 1px dotted gray;">
 						<h3>Wallet 1</h3>
@@ -68,19 +52,19 @@
 						href="#"
 						class="btn btn-default btn-sm btn-block"
 						onclick="deposit(donor1Account, 1); this.blur()"
-						>Deposit (1 ETH)</a
+						>Deposit</a
 					>
 					<a
 						href="#"
 						class="btn btn-default btn-sm btn-block"
 						onclick="donateAll(donor1Account); this.blur()"
-						>Donate ETH Balance</a
+						>Donate</a
 					>
 				</div>
 				<div>
 					<div
 						class="small-box bg-orange"
-						style="box-shadow: 5px 5px 5px -4px black;"
+						style="box-shadow: 5px 5px 5px -2px black;"
 					>
 						<div class="inner" style="height: 110px; border: 1px dotted gray;">
 							<h3>Wallet 2</h3>
@@ -96,20 +80,20 @@
 							href="#"
 							class="btn btn-default btn-sm btn-block"
 							onclick="deposit(donor2Account, 1); this.blur()"
-							>Deposit (1 ETH)</a
+							>Deposit</a
 						>
 						<a
 							href="#"
 							class="btn btn-default btn-sm btn-block"
 							onclick="donateAll(donor2Account); this.blur()"
-							>Donate ETH Balance</a
+							>Donate</a
 						>
 					</div>
 				</div>
 				<div>
 					<div
 						class="small-box bg-orange"
-						style="box-shadow: 5px 5px 5px -4px black;"
+						style="box-shadow: 5px 5px 5px -2px black;"
 					>
 						<div class="inner" style="height: 110px; border: 1px dotted gray;">
 							<h3>Wallet 3</h3>
@@ -125,13 +109,13 @@
 							href="#"
 							class="btn btn-default btn-sm btn-block"
 							onclick="deposit(donor3Account, 1); this.blur()"
-							>Deposit (1 ETH)</a
+							>Deposit</a
 						>
 						<a
 							href="#"
 							class="btn btn-default btn-sm btn-block"
 							onclick="donateAll(donor3Account); this.blur()"
-							>Donate ETH Balance</a
+							>Donate</a
 						>
 					</div>
 				</div>
@@ -141,7 +125,7 @@
 				<!-- small box -->
 				<div
 					class="small-box bg-orange"
-					style="box-shadow: 5px 5px 5px -4px black;"
+					style="box-shadow: 5px 5px 5px -2px black;"
 				>
 					<div class="inner" style="height: 267px; border: 1px dotted gray;">
 						<h3>Escrow</h3>
@@ -162,10 +146,9 @@
 						>Refund Donations</a
 					>
 				</div>
-
 				<div
 					class="small-box bg-orange"
-					style="box-shadow: 5px 5px 5px -4px black;"
+					style="box-shadow: 5px 5px 5px -2px black;"
 				>
 					<div class="inner" style="height: 184px; border: 1px dotted gray;">
 						<h3>Investor</h3>
@@ -181,23 +164,23 @@
 						href="#"
 						class="btn btn-default btn-sm btn-block"
 						onclick="depositToInvestor(10); this.blur()"
-						>Deposit (10 ETH)</a
+						>Deposit</a
 					>
 					<a
 						href="#"
 						class="btn btn-default btn-sm btn-block"
 						onclick="invest(10); this.blur()"
-						>Invest (10 ETH)</a
+						>Invest</a
 					>
 				</div>
 			</div>
 			<div class="col-lg-3 col-xs-6">
 				<div
 					class="small-box bg-orange"
-					style="box-shadow: 5px 5px 5px -4px black;"
+					style="box-shadow: 5px 5px 5px -2px black;"
 				>
 					<div class="inner" style="height: 158px; border: 1px dotted gray;">
-						<h3>Verification</h3>
+						<h3>Verify</h3>
 					</div>
 					<div class="icon">
 						<ion-icon name="eye-outline"></ion-icon>
@@ -211,14 +194,14 @@
 					<a
 						href="#"
 						class="btn btn-default btn-sm btn-block"
-						onclick="validateOutcome('Talk', 8); this.blur()"
-						>Good To Talk (Goal: 8 ETH)</a
+						onclick="validateOutcome('Tree', 5); this.blur()"
+						>Not Far From The Tree (Goal: 5 ETH)</a
 					>
 					<a
 						href="#"
 						class="btn btn-default btn-sm btn-block"
-						onclick="validateOutcome('Tree', 5); this.blur()"
-						>Not Far From The Tree (Goal: 5 ETH)</a
+						onclick="validateOutcome('Talk', 8); this.blur()"
+						>Good To Talk (Goal: 8 ETH)</a
 					>
 					<a
 						href="#"
@@ -231,7 +214,7 @@
 			<div class="col-lg-3 col-xs-6">
 				<div
 					class="small-box bg-orange"
-					style="box-shadow: 5px 5px 5px -4px black;"
+					style="box-shadow: 5px 5px 5px -2px black;"
 				>
 					<div class="inner" style="height: 562px; border: 1px dotted gray;">
 						<h3>Projects</h3>
@@ -261,21 +244,6 @@
 							<a
 								href="#"
 								data-toggle="popover"
-								title="What is Good2Talk?"
-								data-content="Good2Talk is a free, confidential service for post-secondary students in Ontario, available 24/7/365. By calling 1-866-925-5454, post-secondary students in Ontario can receive professional counselling and information and referrals for mental health, addictions and well-being."
-								><img
-									class="proj-img"
-									src="app\img\good_to_talk.png"
-									onmouseover="style='box-shadow: 5px 5px 5px -4px black;'"
-									onmouseout="style='box-shadow: 0px 0px 0px bg-orange;'"
-									width="184"
-									height="92"
-							/></a>
-						</div>
-						<div style="padding-top: 10px; padding-left: 49px;">
-							<a
-								href="#"
-								data-toggle="popover"
 								title="Not Far From The Tree"
 								data-content="Since 2008, Not Far From The Tree has picked and shared over 182,000 pounds of fruit across Toronto. Our organization is made possible thanks to the generous support of over 1,800 tree registrants and 2,200 fruit pickers. A third of this harvest has been shared directly with our 35 social service agency partners."
 								><img
@@ -285,6 +253,21 @@
 									onmouseout="style='box-shadow: 0px 0px 0px bg-orange;'"
 									width="184"
 									height="93"
+							/></a>
+						</div>
+						<div style="padding-top: 10px; padding-left: 49px;">
+							<a
+								href="#"
+								data-toggle="popover"
+								title="What is Good2Talk?"
+								data-content="Good2Talk is a free, confidential service for post-secondary students in Ontario, available 24/7/365. By calling 1-866-925-5454, post-secondary students in Ontario can receive professional counselling and information and referrals for mental health, addictions and well-being."
+								><img
+									class="proj-img"
+									src="app\img\good_to_talk.png"
+									onmouseover="style='box-shadow: 5px 5px 5px -4px black;'"
+									onmouseout="style='box-shadow: 0px 0px 0px bg-orange;'"
+									width="184"
+									height="92"
 							/></a>
 						</div>
 						<div style="padding-top: 10px; padding-left: 49px;">
@@ -309,7 +292,7 @@
 		<div class="icon"><ion-icon name="chevron-down-outline"></ion-icon></div>
 		<div
 			class="box box-secondary"
-			style="margin-top: 20px; padding: 30px; background-color: whitesmoke; box-shadow: 5px 5px 5px -4px black;"
+			style="margin-top: 20px; padding: 30px; background-color: whitesmoke; box-shadow: 5px 5px 5px -2px black;"
 		>
 			<div class="box-header with-border" style="border: 1px dotted gray;">
 				<img src="app\img\ganache2.png" width="112" height="62" />

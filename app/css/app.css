@@ -52,3 +52,18 @@ body {
 .small-box:hover .icon {
 	font-size: 100px;
 }
+
+.btn-default {
+	background-color: gray;
+	color: white;
+	border-color: #2f3e48;
+}
+.btn-default:hover,
+.btn-default:focus,
+.btn-default:active,
+.btn-default.active,
+.open .dropdown-toggle.btn-default {
+	background-color: silver;
+	color: black;
+	border-color: #31347b;
+}
